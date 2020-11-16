@@ -1,0 +1,12 @@
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\bin\Debug\netcoreapp3.1\MyApp.Domain.deps.json
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\bin\Debug\netcoreapp3.1\MyApp.Domain.dll
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\bin\Debug\netcoreapp3.1\MyApp.Domain.pdb
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\obj\Debug\netcoreapp3.1\MyApp.Domain.csprojAssemblyReference.cache
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\obj\Debug\netcoreapp3.1\MyApp.Domain.AssemblyInfoInputs.cache
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\obj\Debug\netcoreapp3.1\MyApp.Domain.AssemblyInfo.cs
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\obj\Debug\netcoreapp3.1\MyApp.Domain.dll
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\obj\Debug\netcoreapp3.1\MyApp.Domain.pdb
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\bin\Debug\netcoreapp3.1\MyApp.Domain.runtimeconfig.json
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\bin\Debug\netcoreapp3.1\MyApp.Domain.runtimeconfig.dev.json
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\obj\Debug\netcoreapp3.1\MyApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\ToDoApp\ToDoApp\MyApp.Domain\obj\Debug\netcoreapp3.1\MyApp.Domain.genruntimeconfig.cache

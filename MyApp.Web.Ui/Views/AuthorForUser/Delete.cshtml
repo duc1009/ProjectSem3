@@ -1,0 +1,41 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+@{
+
+    ViewBag.Title = "Xóa thành viên";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="row">
+
+    <div class="col-sm-12">
+
+        <h2>@ViewBag.Title</h2>
+
+        <hr />
+
+        <div class="text-center">
+
+            <h5>Bạn có chắc muốn xóa thành viên @Model.Email?</h5>
+
+            @using (Html.BeginForm())
+
+            {
+
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <button type="submit" class="btn btn-primary">Chấp nhận</button>
+
+                <a href="@Url.Action("Index")" class="btn btn-default">Không xóa</a>
+
+            }
+
+        </div>
+
+    </div>
+
+</div>

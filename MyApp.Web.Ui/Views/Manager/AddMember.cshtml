@@ -1,0 +1,27 @@
+﻿@model MyApp.Application.ViewModels.Manager.AddMemberViewModel
+
+<h4>Add Members</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddMember">
+            @ViewBag.v1
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Manager</label>
+                <input asp-for="Email" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMember" class="control-label">NewMember</label>
+                <select asp-for="NewMember" asp-items="@(new SelectList(Model.Members,"NewMember"))" class="custom-select"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="AddMember" class="btn btn-default btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

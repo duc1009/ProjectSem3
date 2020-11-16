@@ -1,0 +1,38 @@
+﻿@model MyApp.Application.ViewModels.AuthorForUser.UserRolesModel
+
+
+<h4>VMUsers</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RemoveRole">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" readonly />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RolesName" class="control-label"></label>
+                @foreach (var item in Model.RolesName)
+                {
+                    <input asp-for="RolesName" value="@item" class="form-control" readonly />
+                }
+                <span asp-validation-for="RolesName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewRole" class="control-label">Remove Role From @Model.Email</label>
+                <select asp-for="NewRole" asp-items="@(new SelectList(Model.RolesName))" class="custom-select"></select>
+                <span asp-validation-for="NewRole" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+            @ViewBag.Alert
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
