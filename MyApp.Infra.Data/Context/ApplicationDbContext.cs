@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using MyApp.Domain.Models;
+using MyApp.Infra.Data.Mappings;
 using NetDevPack.Data;
 using NetDevPack.Domain;
 using NetDevPack.Mediator;
@@ -23,10 +24,11 @@ namespace MyApp.Infra.Data.Context
         public DbSet<TodoApp> TodoApps { get; set; }
 
         public DbSet<MyManager> MyManagers { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder builder)
+        public DbSet<Material> Materials { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new MaterialMapping());
         }
 
         public async Task<bool> Commit()
