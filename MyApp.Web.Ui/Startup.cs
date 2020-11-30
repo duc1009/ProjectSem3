@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace MyApp.Web.Ui
 {
-    public class Startup
+    public class    Startup
     {
         public IConfiguration Configuration { get; }
 
