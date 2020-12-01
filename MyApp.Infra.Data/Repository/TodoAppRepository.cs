@@ -13,6 +13,9 @@ namespace MyApp.Infra.Data.Repository
     public class TodoAppRepository : ITodoAppRepository
     {
         protected readonly ApplicationDbContext _context;
+
+        public NetDevPack.Data.IUnitOfWork UnitOfWork => throw new NotImplementedException();
+
         // protected readonly DbSet<TodoApp> DbSet;
 
         public TodoAppRepository(ApplicationDbContext context)
@@ -20,7 +23,6 @@ namespace MyApp.Infra.Data.Repository
             _context = context;
             //    DbSet = _context.Set<Domain.Models.TodoApp>();
         }
-        public IUnitOfWork UnitOfWork => _context;
         public async Task<TodoApp> GetById(Guid id)
         {
             return await _context.TodoApps.FindAsync(id);

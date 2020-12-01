@@ -10,9 +10,9 @@ namespace MyApp.Application.Interfaces
     public interface IMaterialAppService
     {
         void Add(MaterialViewModel MaterialViewModel);
-        IEnumerable<MaterialViewModel> GetAll();
-        MaterialViewModel GetById(Guid id);
+    
         void Update(MaterialViewModel model);
+        IEnumerable<MaterialViewModel> GetAll();
         void Delete(Guid[] ids);
 
     }

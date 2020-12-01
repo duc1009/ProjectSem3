@@ -21,5 +21,11 @@ namespace MyApp.Domain.Models
             Name = name;
         }
         public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+
+        public void Delete()
+        {
+            IsDeleted = true;
+        }
     }
 }

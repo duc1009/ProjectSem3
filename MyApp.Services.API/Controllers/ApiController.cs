@@ -1,9 +1,9 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
-using ETC.EQM.Domain.Core.Bus;
 using ETC.EQM.Domain.Core.Notifications;
 using FluentValidation.Results;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -15,7 +15,6 @@ namespace MyApp.Services.API.Controllers
     {
         private readonly ICollection<string> _errors = new List<string>();
         private readonly DomainNotificationHandler _notifications;
-        private readonly IMediatorHandler _mediator;
 
         protected ActionResult CustomResponse(object result = null)
         {
@@ -29,6 +28,10 @@ namespace MyApp.Services.API.Controllers
                 { "Messages", _errors.ToArray() }
             }));
         }
+
+     
+
+      
 
         protected ActionResult CustomResponse(ModelStateDictionary modelState)
         {
@@ -87,19 +90,8 @@ namespace MyApp.Services.API.Controllers
             });
         }
 
-        protected void NotifyModelStateErrors()
-        {
-            var erros = ModelState.Values.SelectMany(v => v.Errors);
-            foreach (var erro in erros)
-            {
-                var erroMsg = erro.Exception == null ? erro.ErrorMessage : erro.Exception.Message;
-                NotifyError(string.Empty, erroMsg);
-            }
-        }
+      
 
-        protected void NotifyError(string code, string message)
-        {
-            _mediator.RaiseEvent(new DomainNotification(code, message));
-        }
+      
     }
 }

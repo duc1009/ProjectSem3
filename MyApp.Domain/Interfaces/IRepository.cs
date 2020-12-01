@@ -18,15 +18,17 @@ namespace MyApp.Domain.Interfaces
 
         IQueryable<TEntity> GetAll();
 
-        Task<List<TEntity>> GetAllAsync();
+        //Task<List<TEntity>> GetAllAsync();
 
-        Task<TEntity> GetAsync(Guid id);
+        //Task<TEntity> GetAsync(Guid id);
 
         void Remove(Guid id);
 
         int SaveChanges();
 
         void Update(TEntity obj);
+
+        IUnitOfWork UnitOfWork { get; }
 
         #endregion Public Methods
     }

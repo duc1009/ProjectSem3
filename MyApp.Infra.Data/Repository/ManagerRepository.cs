@@ -2,7 +2,6 @@
 using MyApp.Domain.Interfaces;
 using MyApp.Domain.Models;
 using MyApp.Infra.Data.Context;
-using NetDevPack.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +16,8 @@ namespace MyApp.Infra.Data.Repository
             _context = context;
         }
 
-        public IUnitOfWork UnitOfWork => _context;
+
+        NetDevPack.Data.IUnitOfWork NetDevPack.Data.IRepository<MyManager>.UnitOfWork => throw new System.NotImplementedException();
 
         public async Task<MyManager> GetByManagerId(string managerId)
         {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MyApp.Domain.Interfaces
 {
-    public interface ITodoAppRepository : IRepository<Models.TodoApp>
+    public interface ITodoAppRepository : NetDevPack.Data.IRepository<Models.TodoApp>
     {
         Task<Models.TodoApp> GetById(Guid id);
         Task<Models.TodoApp> GetByName(string name);

@@ -6,7 +6,7 @@ using System.Text;
 namespace MyApp.Domain.Commands
 {
  
-    public abstract class AddMaterialCommand : MaterialCommand
+    public class AddMaterialCommand : MaterialCommand
     {
         public AddMaterialCommand(string name)
         {

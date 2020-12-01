@@ -11,6 +11,7 @@ namespace MyApp.Application.AutoMapper
         {
             CreateMap<TodoApp, TodoAppViewModel>();
             CreateMap<MyManager, ManagerViewModel>();
+            CreateMap<Material, MaterialViewModel>();
         }
     }
 }
