@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Infra.CrossCutting.Bu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Services.API", "MyApp.Services.API\MyApp.Services.API.csproj", "{521229AD-8270-4792-8701-F24CD82E5806}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Domain.Core", "MyApp.Domain.Core\MyApp.Domain.Core.csproj", "{60355524-97AE-4B99-ADFC-1AF9CF269AF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{521229AD-8270-4792-8701-F24CD82E5806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{521229AD-8270-4792-8701-F24CD82E5806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{521229AD-8270-4792-8701-F24CD82E5806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60355524-97AE-4B99-ADFC-1AF9CF269AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60355524-97AE-4B99-ADFC-1AF9CF269AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60355524-97AE-4B99-ADFC-1AF9CF269AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60355524-97AE-4B99-ADFC-1AF9CF269AF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{57ABD3C1-193A-498D-82F5-6946D69836FA} = {4B41F45B-CCFC-4590-94F4-963F1FC284AF}
 		{E2C1F56C-34A1-4E34-A602-0918459E6BDC} = {A8DB5C00-9736-4ACB-A11C-4C717EEBC1B9}
 		{521229AD-8270-4792-8701-F24CD82E5806} = {64D69999-1A0E-46A7-9D8A-B112A33B2828}
+		{60355524-97AE-4B99-ADFC-1AF9CF269AF6} = {061CB73C-66F3-433A-B833-9751966B535F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {51DFBC82-E583-4861-8F3D-F52F20A1FA16}

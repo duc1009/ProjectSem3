@@ -29,6 +29,12 @@ namespace MyApp.Application.AutoMapper
                  .ConstructUsing(m => new UpdateManagerCommand(m.ManagerId, m.UserId));
             CreateMap<ManagerViewModel, RemoveManagerCommand>()
                  .ConstructUsing(m => new RemoveManagerCommand(m.ManagerId));
+
+            //Material
+            CreateMap<MaterialViewModel, AddMaterialCommand>()
+                .ConstructUsing(m => new AddMaterialCommand(m.Name));
+            CreateMap<MaterialViewModel, UpdateMaterialCommand>()
+                 .ConstructUsing(m => new UpdateMaterialCommand(m.Id, m.Name));
         }
 
     }

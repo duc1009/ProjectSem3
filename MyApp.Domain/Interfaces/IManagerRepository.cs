@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyApp.Domain.Interfaces
 {
-    public interface IManagerRepository : IRepository<MyManager>
+    public interface IManagerRepository : NetDevPack.Data.IRepository<MyManager>
     {
         Task<MyManager> GetByManagerId(string managerId);
         Task<MyManager> GetByUserId(string userId);
