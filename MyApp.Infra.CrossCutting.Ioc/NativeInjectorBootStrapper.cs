@@ -39,9 +39,9 @@ namespace MyApp.Infra.CrossCutting.Ioc
             services.AddScoped<IRequestHandler<UpdateTodoAppCommand, ValidationResult>, TodoAppCommandHandler>();
             services.AddScoped<IRequestHandler<IsDoneTodoAppCommand, ValidationResult>, TodoAppCommandHandler>();
             //Material
-            services.AddScoped<IRequestHandler<AddMaterialCommand, bool>, MaterialCommandHandler>();
-            services.AddScoped<IRequestHandler<UpdateMaterialCommand, bool>, MaterialCommandHandler>();
-            services.AddScoped<IRequestHandler<DeleteMaterialCommand, bool>, MaterialCommandHandler>();
+            services.AddScoped<IRequestHandler<AddMaterialCommand, ValidationResult>, MaterialCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateMaterialCommand, ValidationResult>, MaterialCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteMaterialCommand, ValidationResult>, MaterialCommandHandler>();
 
             //Domain - Command - manager
             services.AddScoped<IRequestHandler<CreateManagerCommand, ValidationResult>, ManagerCommandHandler>();

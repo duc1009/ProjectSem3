@@ -1,21 +1,18 @@
-﻿
-using ETC.EQM.Domain.Core.Notifications;
+﻿using FluentValidation.Results;
 using MediatR;
 using MyApp.Domain.Commands;
 using MyApp.Domain.Interfaces;
 using MyApp.Domain.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyApp.Domain.CommandHandlers
 {
     public class MaterialCommandHandler : NetDevPack.Messaging.CommandHandler,
-        IRequestHandler<AddMaterialCommand, bool>,
-         IRequestHandler<UpdateMaterialCommand, bool>,
-        IRequestHandler<DeleteMaterialCommand, bool>
+        IRequestHandler<AddMaterialCommand, ValidationResult>,
+         IRequestHandler<UpdateMaterialCommand, ValidationResult>,
+        IRequestHandler<DeleteMaterialCommand, ValidationResult>
     {
         private readonly IMaterialRepository repository;
         //private readonly IUser user;
@@ -26,54 +23,54 @@ namespace MyApp.Domain.CommandHandlers
             this.repository = repository;
 
         }
-        public Task<bool> Handle(AddMaterialCommand message, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Handle(AddMaterialCommand message, CancellationToken cancellationToken)
         {
-            if (!message.IsValid())
-            {
-               
-                return Task.FromResult(false);
-            }
+            if (!message.IsValid()) return message.ValidationResult;
             var Material = new Material(Guid.NewGuid(), message.Name);
             repository.Add(Material);
             
-            return Task.FromResult(false);
+            return await Commit(repository.UnitOfWork);
         }
 
-        public Task<bool> Handle(UpdateMaterialCommand message, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Handle(UpdateMaterialCommand message, CancellationToken cancellationToken)
         {
-            if (!message.IsValid())
-            {
-               
-                return Task.FromResult(false);
-            }
-            var existing = repository.Get(message.Id);
-            if (existing != null)
-            {
-                existing.Update(message.Name);
-                repository.Update(existing);
-            }
+            if (!message.IsValid()) return message.ValidationResult;
+            var todoApp = new Models.Material(
+              message.Id,
+              message.Name
+              );
+            var existingTodoApp = await repository.GetByName(todoApp.Name);
 
-            return Task.FromResult(false);
-        }
-
-        public Task<bool> Handle(DeleteMaterialCommand message, CancellationToken cancellationToken)
-        {
-            if (!message.IsValid())
+            if (existingTodoApp != null && existingTodoApp.Id != todoApp.Id)
             {
-               
-                return Task.FromResult(false);
-            }
-            foreach (var item in message.Ids)
-            {
-                var existing = repository.Get(item);
-                if (existing != null)
+                if (!existingTodoApp.Equals(todoApp))
                 {
-                    existing.Delete();
-                    repository.Update(existing);                   
+                    AddError("The todoApp name has already been taken.");
+                    return ValidationResult;
                 }
             }
-            
-            return Task.FromResult(false);
+
+            return await Commit(repository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> Handle(DeleteMaterialCommand message, CancellationToken cancellationToken)
+        {
+            if (!message.IsValid())
+            {
+
+                await Commit(repository.UnitOfWork);
+            }
+            var todoApp = await repository.GetById(message.Id);
+
+            if (todoApp is null)
+            {
+                AddError("The Material doesn't exists.");
+                return ValidationResult;
+            }
+            repository.Remove(todoApp);
+
+
+            return await Commit(repository.UnitOfWork);
         }
     }
 }

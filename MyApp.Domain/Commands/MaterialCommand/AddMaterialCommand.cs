@@ -1,4 +1,5 @@
 ﻿using ETC.EQM.Domain.Core.Commands;
+using MyApp.Domain.Commands.Validations;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +16,8 @@ namespace MyApp.Domain.Commands
 
         public override bool IsValid()
         {
-            return true;
+            ValidationResult = new AddMateriaCommanValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
 
 

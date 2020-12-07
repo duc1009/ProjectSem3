@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyApp.Domain.Interfaces;
+using MyApp.Domain.Interfaces.e;
 using MyApp.Infra.Data.Context;
 using System;
 using System.Collections.Generic;

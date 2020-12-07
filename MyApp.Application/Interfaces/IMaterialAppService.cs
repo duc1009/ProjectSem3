@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace MyApp.Application.Interfaces
 {
-    public interface IMaterialAppService
+    public interface IMaterialAppService: IDisposable
     {
-        void Add(MaterialViewModel MaterialViewModel);
-    
-        void Update(MaterialViewModel model);
-        IEnumerable<MaterialViewModel> GetAll();
+        Task<ValidationResult> Add(MaterialViewModel MaterialViewModel);
+
+        Task<ValidationResult> Update(MaterialViewModel model);
+        Task<IEnumerable<MaterialViewModel>> GetAll();
         void Delete(Guid[] ids);
 
     }

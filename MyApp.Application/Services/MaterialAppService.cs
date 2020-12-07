@@ -1,15 +1,13 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using FluentValidation.Results;
 using MyApp.Application.Interfaces;
 using MyApp.Application.ViewModels;
-using MyApp.Application.ViewModels.Manager;
 using MyApp.Domain.Commands;
-using MyApp.Domain.Commands.ManagerCommands;
 using MyApp.Domain.Interfaces;
-using MyApp.Domain.ModelQueries;
+using NetDevPack.Mediator;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 
 namespace MyApp.Application.Services
@@ -18,16 +16,19 @@ namespace MyApp.Application.Services
     {
         private readonly IMapper mapper;
         private readonly IMaterialRepository repository;
+        private readonly IMediatorHandler _mediator;
 
-        public MaterialAppService(IMapper mapper, IMaterialRepository repository)
+        public MaterialAppService(IMapper mapper, IMaterialRepository repository, IMediatorHandler mediator)
         {
             this.mapper = mapper;
             this.repository = repository;
+            this._mediator = mediator;
         }
 
-        public void Add(MaterialViewModel MaterialViewModel)
+        public async Task<ValidationResult> Add(MaterialViewModel MaterialViewModel)
         {
             var addCommand = mapper.Map<AddMaterialCommand>(MaterialViewModel);
+            return await _mediator.SendCommand(addCommand);
         }
 
         public void Delete(Guid[] ids)
@@ -35,15 +36,22 @@ namespace MyApp.Application.Services
             var deleteCommand = new DeleteMaterialCommand(ids);
         }
 
-        public IEnumerable<MaterialViewModel> GetAll()
+        public void Dispose()
         {
-            return repository.GetAll().ProjectTo<MaterialViewModel>(mapper.ConfigurationProvider);
+            GC.SuppressFinalize(this);
         }
 
-        public void Update(MaterialViewModel model)
+        public async Task<IEnumerable<MaterialViewModel>> GetAll()
         {
-            var addCommand = mapper.Map<UpdateMaterialCommand>(model);
+            return mapper.Map<IEnumerable<MaterialViewModel>>(await repository.GetAll());
         }
+
+        public async Task<ValidationResult> Update(MaterialViewModel model)
+        {
+            var updateCommand = mapper.Map<UpdateMaterialCommand>(model);
+            return await _mediator.SendCommand(updateCommand);
+        }
+
        
     }
 }

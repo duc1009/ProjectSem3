@@ -1,4 +1,5 @@
-﻿using ETC.EQM.Domain.Core.Commands;
+﻿
+using NetDevPack.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Text;

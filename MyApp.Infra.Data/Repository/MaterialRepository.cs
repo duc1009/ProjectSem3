@@ -2,8 +2,10 @@
 using MyApp.Domain.Interfaces;
 using MyApp.Domain.Models;
 using MyApp.Infra.Data.Context;
+using NetDevPack.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,46 +20,47 @@ namespace MyApp.Infra.Data.Repository
             _context = context;
         }
 
-        public IUnitOfWork UnitOfWork => throw new NotImplementedException();
+        public Domain.Interfaces.IUnitOfWork UnitOfWork => throw new NotImplementedException();
+
+        NetDevPack.Data.IUnitOfWork IRepository<Material>.UnitOfWork => throw new NotImplementedException();
 
         public void Add(Material material)
         {
             _context.Materials.Add(material);
         }
 
-        public Task AddAsync(Material obj)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public void Dispose()
         {
             _context.Dispose();
         }
 
-        public Material Get(Guid id)
+        public async Task<IEnumerable<Material>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Materials.ToListAsync();
         }
 
-        public IQueryable<Material> GetAll()
+        public async Task<Material> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return await _context.Materials.FindAsync(id);
         }
 
-        public void Remove(Guid id)
+        public async Task<Material> GetByName(string name)
         {
-            throw new NotImplementedException();
+            return await _context.Materials.AsNoTracking().FirstOrDefaultAsync(t => t.Name == name);
         }
 
-        public int SaveChanges()
+        public void Remove(Material obj)
         {
-            throw new NotImplementedException();
+            _context.Materials.Remove(obj);
         }
+
+     
 
         public void Update(Material obj)
         {
-            throw new NotImplementedException();
+            _context.Materials.Update(obj);
         }
     }
 }

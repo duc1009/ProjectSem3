@@ -15,38 +15,24 @@ namespace MyApp.Services.API.Controllers
     [ApiController]
     public class MaterialController: ApiController
     {
-
-        private readonly IMaterialAppService MaterialAppService;
+        private readonly IMaterialAppService materialAppService;
 
         public MaterialController( IMaterialAppService MaterialAppService) 
         {
-            this.MaterialAppService = MaterialAppService;
+            this.materialAppService = MaterialAppService;
         }
 
         [HttpGet("Materials")]
-        public IEnumerable<MaterialViewModel> Get()
+        public async Task<IEnumerable<MaterialViewModel>> Get()
         {
-            //if (!ModelState.IsValid)
-            //{
-
-            //    return Response(MaterialViewModel);
-            //}
-
-
-            return MaterialAppService.GetAll(); 
+            return await materialAppService.GetAll(); 
         }
         [Microsoft.AspNetCore.Authorization.AllowAnonymous]
         [HttpPost("Material")]
-        public IActionResult Add([FromBody] MaterialViewModel MaterialViewModel)
+        public async Task<IActionResult> Add([FromBody] MaterialViewModel materialViewModel)
         {
-            //if (!ModelState.IsValid)
-            //{
-              
-            //    return Response(MaterialViewModel);
-            //}
-            MaterialAppService.Add(MaterialViewModel);
-
-            return CustomResponse(ModelState);
+            return ModelState.IsValid ? CustomResponse(await materialAppService.Add(materialViewModel))
+                 : CustomResponse(materialViewModel);
         }
     }
 }

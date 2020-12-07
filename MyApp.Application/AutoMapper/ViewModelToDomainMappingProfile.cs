@@ -35,6 +35,7 @@ namespace MyApp.Application.AutoMapper
                 .ConstructUsing(m => new AddMaterialCommand(m.Name));
             CreateMap<MaterialViewModel, UpdateMaterialCommand>()
                  .ConstructUsing(m => new UpdateMaterialCommand(m.Id, m.Name));
+           
         }
 
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApp.Domain.Interfaces
+namespace MyApp.Domain.Interfaces.e
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : class
     {
