@@ -6,5 +6,6 @@ namespace MyApp.Domain.Interfaces
     public interface IMaterialRepository : IRepository<Material>
     {
 
+        void Add(Models.Material material);
     }
 }
