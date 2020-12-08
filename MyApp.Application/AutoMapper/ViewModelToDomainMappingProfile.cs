@@ -3,9 +3,6 @@ using MyApp.Application.ViewModels;
 using MyApp.Application.ViewModels.Manager;
 using MyApp.Domain.Commands;
 using MyApp.Domain.Commands.ManagerCommands;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyApp.Application.AutoMapper
 {

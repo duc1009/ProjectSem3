@@ -14,7 +14,8 @@ namespace MyApp.Infra.Data.Repository
     {
         protected readonly ApplicationDbContext _context;
 
-        public NetDevPack.Data.IUnitOfWork UnitOfWork => throw new NotImplementedException();
+
+        NetDevPack.Data.IUnitOfWork IRepository<TodoApp>.UnitOfWork => _context;
 
         // protected readonly DbSet<TodoApp> DbSet;
 

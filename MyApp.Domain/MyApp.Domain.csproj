@@ -15,8 +15,4 @@
     <PackageReference Include="NetDevPack" Version="1.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MyApp.Domain.Core\MyApp.Domain.Core.csproj" />
-  </ItemGroup>
-
 </Project>

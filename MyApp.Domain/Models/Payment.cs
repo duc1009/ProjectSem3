@@ -4,32 +4,33 @@ using System.Collections.Generic;
 
 namespace MyApp.Domain.Models
 {
-    public class Material: IAggregateRoot
+    public class Payment: IAggregateRoot
     {
-        public Material(string name)
+        public Payment(string name,string code)
         {
             Name = name;
+            Code = code;
         }
-        public Material(Guid id, string name) 
+        public Payment(Guid id, string name,string code) 
         {
             Id = id;
-            Update(name);
-            this.Prices = new HashSet<Price>();
-            this.BillDetails = new HashSet<BillDetail>();
+            Update(name,code);
+            this.Bills = new HashSet<Bill>();
         }
-        public void Update(string name)
+        public void Update(string name,string code)
         {
             Name = name;
+            Code = code;
         }
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public string Code { get; set; }
         public bool IsDeleted { get; set; }
 
         public void Delete()
         {
             IsDeleted = true;
         }
-        public virtual ICollection<Price> Prices { get; set; }
-        public virtual ICollection<BillDetail> BillDetails { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
     }
 }

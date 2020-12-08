@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace MyApp.Domain.Models
 {
-    public class Material: IAggregateRoot
+    public class Size: IAggregateRoot
     {
-        public Material(string name)
+        public Size(string name)
         {
             Name = name;
         }
-        public Material(Guid id, string name) 
+        public Size(Guid id, string name) 
         {
             Id = id;
             Update(name);

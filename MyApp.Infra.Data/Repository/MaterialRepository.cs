@@ -20,9 +20,7 @@ namespace MyApp.Infra.Data.Repository
             _context = context;
         }
 
-        public Domain.Interfaces.IUnitOfWork UnitOfWork => throw new NotImplementedException();
-
-        NetDevPack.Data.IUnitOfWork IRepository<Material>.UnitOfWork => throw new NotImplementedException();
+        NetDevPack.Data.IUnitOfWork NetDevPack.Data.IRepository<Material>.UnitOfWork => _context;
 
         public void Add(Material material)
         {

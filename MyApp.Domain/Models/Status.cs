@@ -4,18 +4,17 @@ using System.Collections.Generic;
 
 namespace MyApp.Domain.Models
 {
-    public class Material: IAggregateRoot
+    public class Status: IAggregateRoot
     {
-        public Material(string name)
+        public Status(string name)
         {
             Name = name;
         }
-        public Material(Guid id, string name) 
+        public Status(Guid id, string name) 
         {
             Id = id;
             Update(name);
-            this.Prices = new HashSet<Price>();
-            this.BillDetails = new HashSet<BillDetail>();
+            this.Bills = new HashSet<Bill>();
         }
         public void Update(string name)
         {
@@ -29,7 +28,6 @@ namespace MyApp.Domain.Models
         {
             IsDeleted = true;
         }
-        public virtual ICollection<Price> Prices { get; set; }
-        public virtual ICollection<BillDetail> BillDetails { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
     }
 }
