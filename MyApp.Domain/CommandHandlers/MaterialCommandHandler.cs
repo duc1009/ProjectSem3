@@ -18,10 +18,8 @@ namespace MyApp.Domain.CommandHandlers
         //private readonly IUser user;
 
         public MaterialCommandHandler(IMaterialRepository repository)
-        {
-           
+        {           
             this.repository = repository;
-
         }
         public async Task<ValidationResult> Handle(AddMaterialCommand message, CancellationToken cancellationToken)
         {

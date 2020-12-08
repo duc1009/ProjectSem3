@@ -1,12 +1,8 @@
-﻿using ETC.EQM.Domain.Core.Commands;
-using MyApp.Domain.Commands.Validations;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MyApp.Domain.Commands.Validations;
 
 namespace MyApp.Domain.Commands
 {
- 
+
     public class AddMaterialCommand : MaterialCommand
     {
         public AddMaterialCommand(string name)

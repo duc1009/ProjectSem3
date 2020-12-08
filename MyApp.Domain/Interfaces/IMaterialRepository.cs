@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyApp.Domain.Interfaces
 {
-    public interface IMaterialRepository : NetDevPack.Data.IRepository<Material>
+    public interface IMaterialRepository : IRepository<Material>
     {
         void Add(Material material);
         Task<Models.Material> GetByName(string name);

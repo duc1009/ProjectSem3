@@ -1,11 +1,8 @@
-﻿using ETC.EQM.Domain.Core.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace MyApp.Domain.Commands
 {
- 
+
     public  class DeleteMaterialCommand : MaterialCommand
     {
         public Guid[] Ids { get; set; }

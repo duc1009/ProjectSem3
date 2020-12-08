@@ -17,7 +17,7 @@ namespace MyApp.Infra.Data.Repository
         }
 
 
-        NetDevPack.Data.IUnitOfWork NetDevPack.Data.IRepository<MyManager>.UnitOfWork => throw new System.NotImplementedException();
+        NetDevPack.Data.IUnitOfWork NetDevPack.Data.IRepository<MyManager>.UnitOfWork => _context;
 
         public async Task<MyManager> GetByManagerId(string managerId)
         {

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyApp.Infra.Data.Context;
 
 namespace MyApp.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201208165145_addAll")]
+    partial class addAll
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -277,9 +279,12 @@ namespace MyApp.Infra.Data.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("MaterialId")
+                    b.Property<Guid>("MateriaId")
                         .HasColumnType("uniqueidentifier")
                         .HasMaxLength(40);
+
+                    b.Property<Guid?>("MaterialId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("SizeId")
                         .HasColumnType("uniqueidentifier")
@@ -555,9 +560,7 @@ namespace MyApp.Infra.Data.Migrations
 
                     b.HasOne("MyApp.Domain.Models.Material", null)
                         .WithMany("BillDetails")
-                        .HasForeignKey("MaterialId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MaterialId");
 
                     b.HasOne("MyApp.Domain.Models.Size", null)
                         .WithMany("BillDetails")

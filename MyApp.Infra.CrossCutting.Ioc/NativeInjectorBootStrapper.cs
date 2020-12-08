@@ -12,7 +12,6 @@ using MyApp.Infra.CrossCutting.Bus;
 using MyApp.Domain.Commands.Validations;
 using MyApp.Domain.Commands.ManagerCommands;
 using MyApp.Domain.CommandHandlers;
-using MyApp.Infra.Data.Uow;
 
 namespace MyApp.Infra.CrossCutting.Ioc
 {
@@ -22,9 +21,6 @@ namespace MyApp.Infra.CrossCutting.Ioc
         {
             // Domain Bus (Mediator)
             services.AddScoped<IMediatorHandler, InMemoryBus>();
-            services.AddScoped<ApplicationDbContext>();
-            services.AddScoped<IMediatorHandler, InMemoryBus>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Application
             services.AddScoped<ITodoAppService, TodoAppService>();
