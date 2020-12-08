@@ -9,11 +9,10 @@ namespace MyApp.Application.Interfaces
 {
     public interface IMaterialAppService: IDisposable
     {
-        Task<ValidationResult> Add(MaterialViewModel MaterialViewModel);
+        Task<ValidationResult> Add(MaterialViewModel model);
 
         Task<ValidationResult> Update(MaterialViewModel model);
         Task<IEnumerable<MaterialViewModel>> GetAll();
         void Delete(Guid[] ids);
-
     }
 }
