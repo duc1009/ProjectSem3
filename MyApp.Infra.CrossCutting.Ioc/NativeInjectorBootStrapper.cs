@@ -26,6 +26,7 @@ namespace MyApp.Infra.CrossCutting.Ioc
             services.AddScoped<ITodoAppService, TodoAppService>();
             services.AddScoped<IManagerAppService, ManagerAppService>();
             services.AddScoped<IMaterialAppService, MaterialAppService>();
+            services.AddScoped<IBillAppService, BillAppService>();
 
             //services.AddScoped<IUser, AspNetUser>();
             // Domain - Commands - todoApp
@@ -38,6 +39,10 @@ namespace MyApp.Infra.CrossCutting.Ioc
             services.AddScoped<IRequestHandler<AddMaterialCommand, ValidationResult>, MaterialCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateMaterialCommand, ValidationResult>, MaterialCommandHandler>();
             services.AddScoped<IRequestHandler<DeleteMaterialCommand, ValidationResult>, MaterialCommandHandler>();
+            //Bill
+            services.AddScoped<IRequestHandler<AddBillCommand, ValidationResult>, BillCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateBillCommand, ValidationResult>, BillCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteBillCommand, ValidationResult>, BillCommandHandler>();
 
             //Domain - Command - manager
             services.AddScoped<IRequestHandler<CreateManagerCommand, ValidationResult>, ManagerCommandHandler>();
@@ -50,6 +55,8 @@ namespace MyApp.Infra.CrossCutting.Ioc
 
             //Material
             services.AddScoped<IMaterialRepository, MaterialRepository>();
+            //Bill
+            services.AddScoped<IBillRepository, BillRepository>();
 
 
 

@@ -32,7 +32,13 @@ namespace MyApp.Application.AutoMapper
                 .ConstructUsing(m => new AddMaterialCommand(m.Name));
             CreateMap<MaterialViewModel, UpdateMaterialCommand>()
                  .ConstructUsing(m => new UpdateMaterialCommand(m.Id, m.Name));
-           
+            //Bill
+            CreateMap<BillViewModel, AddBillCommand>()
+                 .ConstructUsing(m => new AddBillCommand(m.UserId, m.TotalMoney, m.Date, m.Note, m.StatusId, m.StatusPayId, m.PaymentId))
+                 .ForMember(x => x.BillDetails, o => o.MapFrom(e => e.BillDetails));
+            CreateMap<BillViewModel, UpdateBillCommand>()
+                 .ConstructUsing(m => new UpdateBillCommand(m.Id, m.UserId, m.TotalMoney, m.Date, m.Note, m.StatusId, m.StatusPayId, m.PaymentId))
+                 .ForMember(x => x.BillDetails, o => o.MapFrom(e => e.BillDetails));
         }
 
     }
