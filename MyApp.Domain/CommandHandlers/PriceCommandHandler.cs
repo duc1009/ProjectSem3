@@ -57,16 +57,15 @@ namespace MyApp.Domain.CommandHandlers
 
                 await Commit(_repository.UnitOfWork);
             }
-            var todoApp = await _repository.GetById(message.Id);
-
-            if (todoApp is null)
+            foreach (var item in message.Ids)
             {
-                AddError("The Material doesn't exists.");
-                return ValidationResult;
+                var existing = await _repository.GetById(item);
+                if (existing != null)
+                {
+                    existing.IsDeleted = true;
+                    _repository.Update(existing);
+                }
             }
-            _repository.Remove(todoApp);
-
-
             return await Commit(_repository.UnitOfWork);
         }
     }

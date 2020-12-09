@@ -31,9 +31,10 @@ namespace MyApp.Application.Services
             return await _mediator.SendCommand(addCommand);
         }
 
-        public void Delete(Guid[] ids)
+        public async Task<ValidationResult> Delete(Guid[] ids)
         {
             var deleteCommand = new DeleteMaterialCommand(ids);
+            return await _mediator.SendCommand(deleteCommand);
         }
 
         public void Dispose()
