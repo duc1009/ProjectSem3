@@ -12,6 +12,8 @@ using MyApp.Infra.CrossCutting.Bus;
 using MyApp.Domain.Commands.Validations;
 using MyApp.Domain.Commands.ManagerCommands;
 using MyApp.Domain.CommandHandlers;
+using MyApp.Domain.Commands.SizeCommands;
+using MyApp.Domain.Commands.PriceCommands;
 
 namespace MyApp.Infra.CrossCutting.Ioc
 {
@@ -26,6 +28,8 @@ namespace MyApp.Infra.CrossCutting.Ioc
             services.AddScoped<ITodoAppService, TodoAppService>();
             services.AddScoped<IManagerAppService, ManagerAppService>();
             services.AddScoped<IMaterialAppService, MaterialAppService>();
+            services.AddScoped<IPriceAppService, PriceAppService>();
+            services.AddScoped<ISizeAppService, SizeAppService>();
             services.AddScoped<IBillAppService, BillAppService>();
 
             //services.AddScoped<IUser, AspNetUser>();
@@ -44,6 +48,16 @@ namespace MyApp.Infra.CrossCutting.Ioc
             services.AddScoped<IRequestHandler<UpdateBillCommand, ValidationResult>, BillCommandHandler>();
             services.AddScoped<IRequestHandler<DeleteBillCommand, ValidationResult>, BillCommandHandler>();
 
+            //Size
+            services.AddScoped<IRequestHandler<AddSizeCommand, ValidationResult>, SizeCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateSizeCommand, ValidationResult>, SizeCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteSizeCommand, ValidationResult>, SizeCommandHandler>();
+
+            //Price
+            services.AddScoped<IRequestHandler<AddPriceCommand, ValidationResult>, PriceCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdatePriceCommand, ValidationResult>, PriceCommandHandler>();
+            services.AddScoped<IRequestHandler<DeletePriceCommand, ValidationResult>, PriceCommandHandler>();
+
             //Domain - Command - manager
             services.AddScoped<IRequestHandler<CreateManagerCommand, ValidationResult>, ManagerCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateManagerCommand, ValidationResult>, ManagerCommandHandler>();
@@ -58,6 +72,8 @@ namespace MyApp.Infra.CrossCutting.Ioc
             //Bill
             services.AddScoped<IBillRepository, BillRepository>();
 
+            services.AddScoped<ISizeRepository, SizeRepository>();
+            services.AddScoped<IPriceRepository, PriceRepository>();
 
 
             services.AddDbContext<ApplicationDbContext>();
