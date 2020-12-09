@@ -28,7 +28,6 @@ namespace MyApp.Application.Services
         public async Task<ValidationResult> Add(MaterialViewModel MaterialViewModel)
         {
             var addCommand = mapper.Map<AddMaterialCommand>(MaterialViewModel);
-            var t = 0;
             return await _mediator.SendCommand(addCommand);
         }
 

@@ -5,14 +5,11 @@ using System.Text;
 
 namespace MyApp.Domain.Commands.Validations.PriceValidations
 {
-    public class UpdatePriceCommandValidation : PriceValidation<PriceCommand>
+    public class DeletePriceCommandValidation : PriceValidation<PriceCommand>
     {
-        public UpdatePriceCommandValidation()
+        public DeletePriceCommandValidation()
         {
             ValidateId();
-            ValidateMaterialId();
-            ValidateSizeId();
-            ValidateValue();
         }
     }
 }

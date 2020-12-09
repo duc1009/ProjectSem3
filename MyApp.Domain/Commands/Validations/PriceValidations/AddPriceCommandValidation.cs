@@ -14,5 +14,6 @@ namespace MyApp.Domain.Commands.Validations.PriceValidations
             ValidateSizeId();
             ValidateValue();
         }
+
     }
 }

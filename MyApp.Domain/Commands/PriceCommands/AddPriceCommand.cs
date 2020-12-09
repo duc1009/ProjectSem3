@@ -15,9 +15,8 @@ namespace MyApp.Domain.Commands.PriceCommands
         }
         public override bool IsValid()
         {
-            return true;
-            //ValidationResult = new AddPriceCommandValidation().Validate(this);
-            //return ValidationResult.IsValid;
+            ValidationResult = new AddPriceCommandValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
 
     }

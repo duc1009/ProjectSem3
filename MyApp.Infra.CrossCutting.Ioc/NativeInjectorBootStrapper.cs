@@ -26,6 +26,8 @@ namespace MyApp.Infra.CrossCutting.Ioc
             services.AddScoped<ITodoAppService, TodoAppService>();
             services.AddScoped<IManagerAppService, ManagerAppService>();
             services.AddScoped<IMaterialAppService, MaterialAppService>();
+            services.AddScoped<IPriceAppService, PriceAppService>();
+            services.AddScoped<ISizeAppService, SizeAppService>();
 
             //services.AddScoped<IUser, AspNetUser>();
             // Domain - Commands - todoApp
@@ -50,7 +52,8 @@ namespace MyApp.Infra.CrossCutting.Ioc
 
             //Material
             services.AddScoped<IMaterialRepository, MaterialRepository>();
-
+            services.AddScoped<ISizeRepository, SizeRepository>();
+            services.AddScoped<IPriceRepository, PriceRepository>();
 
 
             services.AddDbContext<ApplicationDbContext>();

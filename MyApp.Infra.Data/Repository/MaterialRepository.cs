@@ -1,11 +1,11 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using MyApp.Domain.Interfaces;
 using MyApp.Domain.Models;
 using MyApp.Infra.Data.Context;
 using NetDevPack.Data;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
