@@ -13,6 +13,7 @@ namespace MyApp.Application.Interfaces
 
         Task<ValidationResult> Update(MaterialViewModel model);
         Task<IEnumerable<MaterialViewModel>> GetAll();
-        void Delete(Guid[] ids);
+        Task<ValidationResult> Delete(Guid[] ids);
+
     }
 }

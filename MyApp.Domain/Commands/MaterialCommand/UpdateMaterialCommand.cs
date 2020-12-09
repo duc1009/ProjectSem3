@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyApp.Domain.Commands.Validations;
+using System;
 
 namespace MyApp.Domain.Commands
 {
@@ -11,9 +12,5 @@ namespace MyApp.Domain.Commands
             Name = name;
         }
 
-        public override bool IsValid()
-        {
-            return true;
-        }
     }
 }

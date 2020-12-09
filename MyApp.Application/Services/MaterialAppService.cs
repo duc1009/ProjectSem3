@@ -28,13 +28,13 @@ namespace MyApp.Application.Services
         public async Task<ValidationResult> Add(MaterialViewModel MaterialViewModel)
         {
             var addCommand = mapper.Map<AddMaterialCommand>(MaterialViewModel);
-            var t = 0;
             return await _mediator.SendCommand(addCommand);
         }
 
-        public void Delete(Guid[] ids)
+        public async Task<ValidationResult> Delete(Guid[] ids)
         {
             var deleteCommand = new DeleteMaterialCommand(ids);
+            return await _mediator.SendCommand(deleteCommand);
         }
 
         public void Dispose()

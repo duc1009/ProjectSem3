@@ -372,8 +372,8 @@ namespace MyApp.Infra.Data.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasMaxLength(40);
 
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Value")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

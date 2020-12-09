@@ -33,21 +33,16 @@ namespace MyApp.Domain.CommandHandlers
         public async Task<ValidationResult> Handle(UpdateMaterialCommand message, CancellationToken cancellationToken)
         {
             if (!message.IsValid()) return message.ValidationResult;
-            var todoApp = new Models.Material(
-              message.Id,
-              message.Name
-              );
-            var existingTodoApp = await repository.GetByName(todoApp.Name);
+          
+            var existingMaterial = await repository.GetById(message.Id);
 
-            if (existingTodoApp != null && existingTodoApp.Id != todoApp.Id)
+            if (existingMaterial ==null)
             {
-                if (!existingTodoApp.Equals(todoApp))
-                {
-                    AddError("The todoApp name has already been taken.");
-                    return ValidationResult;
-                }
+                AddError("Material not found!");
+                return ValidationResult;
             }
-
+            existingMaterial.Name = message.Name;
+            repository.UpDate(existingMaterial);
             return await Commit(repository.UnitOfWork);
         }
 
@@ -58,16 +53,15 @@ namespace MyApp.Domain.CommandHandlers
 
                 await Commit(repository.UnitOfWork);
             }
-            var todoApp = await repository.GetById(message.Id);
-
-            if (todoApp is null)
+            foreach (var item in message.Ids)
             {
-                AddError("The Material doesn't exists.");
-                return ValidationResult;
+                var existing = await repository.GetById(item);
+                if (existing != null)
+                {
+                    existing.IsDeleted = true;
+                    repository.UpDate(existing);
+                }
             }
-            repository.Remove(todoApp);
-
-
             return await Commit(repository.UnitOfWork);
         }
     }

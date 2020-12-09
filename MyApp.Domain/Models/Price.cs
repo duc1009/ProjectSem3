@@ -7,13 +7,13 @@ namespace MyApp.Domain.Models
     public class Price: IAggregateRoot
     {
        
-        public Price(Guid id, Guid materialId, Guid sizeId, string value)
+        public Price(Guid id, Guid materialId, Guid sizeId, double value)
         {
             Id = id;
             Update( materialId,  sizeId,  value);
         }
 
-        public void Update(Guid materialId, Guid sizeId, string value)
+        public void Update(Guid materialId, Guid sizeId, double value)
         {
             MaterialId = materialId;
             SizeId = sizeId;
@@ -22,7 +22,7 @@ namespace MyApp.Domain.Models
         public Guid Id { get; set; }
         public Guid MaterialId { get; set; }
         public Guid SizeId { get; set; }
-        public string Value { get; set; }
+        public double Value { get; set; }
         public bool IsDeleted { get; set; }
 
         public void Delete()

@@ -27,7 +27,7 @@ namespace MyApp.Infra.Data.Repository
             _context.Materials.Add(material);
         }
 
-       
+
 
         public void Dispose()
         {
@@ -54,11 +54,11 @@ namespace MyApp.Infra.Data.Repository
             _context.Materials.Remove(obj);
         }
 
-     
 
-        public void Update(Material obj)
+
+        public void UpDate(Material material)
         {
-            _context.Materials.Update(obj);
+            _context.Materials.Update(material);
         }
     }
 }

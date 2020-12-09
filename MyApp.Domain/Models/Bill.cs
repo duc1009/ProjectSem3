@@ -1,12 +1,13 @@
 ﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyApp.Domain.Models
 {
     public class Bill: IAggregateRoot
     {
-        public Bill(Guid id, Guid userId, double totalMoney, DateTime date, string note, Guid statusId, Guid statusPayId, Guid paymentId, bool isDeleted)
+        public Bill(Guid id, Guid userId, double totalMoney, DateTime date, string note, Guid statusId, Guid statusPayId, Guid paymentId)
         {
             Id = id;
             Update(userId, totalMoney, date, note, statusId, statusPayId, paymentId);
@@ -42,5 +43,18 @@ namespace MyApp.Domain.Models
             IsDeleted = true;
         }
         public virtual ICollection<BillDetail> BillDetails { get; set; }
+        public void AddBillDetail(BillDetail model)
+        {
+            BillDetails.Add(model);
+        }
+
+        public void RemoveBillDetail()
+        {
+            var BillDetail = BillDetails.AsQueryable().ToList().Where(x => x.BillId == Id);
+            foreach (var item in BillDetail)
+            {
+                BillDetails.Remove(item);
+            }
+        }
     }
 }
