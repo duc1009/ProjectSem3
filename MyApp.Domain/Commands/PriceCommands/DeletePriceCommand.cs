@@ -12,10 +12,6 @@ namespace MyApp.Domain.Commands.PriceCommands
         {
             Ids = ids;
         }
-        public override bool IsValid()
-        {
-            ValidationResult = new DeletePriceCommandValidation().Validate(this);
-            return ValidationResult.IsValid;
-        }
+    
     }
 }

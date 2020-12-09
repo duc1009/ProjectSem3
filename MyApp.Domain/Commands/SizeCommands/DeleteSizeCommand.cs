@@ -12,10 +12,6 @@ namespace MyApp.Domain.Commands.SizeCommands
         {
             Ids = ids;
         }
-        public override bool IsValid()
-        {
-            ValidationResult = new DeleteSizeCommandValidation().Validate(this);
-            return ValidationResult.IsValid;
-        }
+   
     }
 }

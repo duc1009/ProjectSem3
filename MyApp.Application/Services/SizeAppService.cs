@@ -32,8 +32,8 @@ namespace MyApp.Application.Services
 
         public async Task<ValidationResult> DeleteAsync(Guid[] ids)
         {
-            var removeCommand = _mapper.Map<DeleteSizeCommand>(ids);
-            return await _mediator.SendCommand(removeCommand);
+            var deleteCommand = new DeleteSizeCommand(ids);
+            return await _mediator.SendCommand(deleteCommand);
         }
 
         public void Dispose()

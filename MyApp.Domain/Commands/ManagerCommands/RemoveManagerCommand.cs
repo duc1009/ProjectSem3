@@ -11,11 +11,5 @@ namespace MyApp.Domain.Commands.ManagerCommands
         {
             UserId = userId;
         }
-
-        public override bool IsValid()
-        {
-            ValidationResult = new RemoveManagerCommandValidation().Validate(this);
-            return ValidationResult.IsValid;
-        }
     }
 }
