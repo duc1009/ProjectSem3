@@ -35,22 +35,17 @@ namespace MyApp.Domain.CommandHandlers
         public async Task<ValidationResult> Handle(UpdatePriceCommand message, CancellationToken cancellationToken)
         {
             if (!message.IsValid()) return message.ValidationResult;
-            var price = new Price(
-              message.Id,
-              message.MaterialId,
-              message.SizeId,
-              message.Value
-              );
+      
             var existingPrice = await _repository.GetById(message.Id);
-
-            if (existingPrice != null && existingPrice.Id != price.Id)
+            if (existingPrice==null)
             {
-                if (!existingPrice.Equals(price))
-                {
-                    AddError("The price has already been taken.");
-                    return ValidationResult;
-                }
+                AddError("The price not found.");
+                return ValidationResult;
             }
+            existingPrice.MaterialId = message.MaterialId;
+            existingPrice.SizeId = message.SizeId;
+            existingPrice.Value = message.Value;
+            _repository.Update(existingPrice);
 
             return await Commit(_repository.UnitOfWork);
         }

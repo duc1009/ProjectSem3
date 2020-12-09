@@ -12,8 +12,8 @@ namespace MyApp.Domain.Interfaces
         void Add(Material material);
         Task<Models.Material> GetByName(string name);
         Task<Models.Material> GetById(Guid id);
-        void Remove(Models.Material todoApp);
-   
+        void Remove(Models.Material material);
+        void UpDate(Material material);
         Task<IEnumerable<Models.Material>> GetAll();
 
     }
