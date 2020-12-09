@@ -17,7 +17,9 @@ namespace MyApp.Application.AutoMapper
             CreateMap<Bill, BillViewModel>();
             CreateMap<BillDTO, BillViewModel>();
             CreateMap<BillDetail, BillDetailViewModel>();
+            CreateMap<BillDetailViewModel, BillDetail > ();
             CreateMap<BillDetailDTO, BillDetailViewModel>();
+            CreateMap<BillDetailViewModel, BillDetailDTO>();
             CreateMap<Price, PriceViewModel>();
             CreateMap<Size, SizeViewModel>();
         }

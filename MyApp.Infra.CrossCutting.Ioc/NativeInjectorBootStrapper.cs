@@ -14,12 +14,15 @@ using MyApp.Domain.Commands.ManagerCommands;
 using MyApp.Domain.CommandHandlers;
 using MyApp.Domain.Commands.SizeCommands;
 using MyApp.Domain.Commands.PriceCommands;
+using MyApp.Domain.Queries;
+using MyApp.Infra.Data.Queries;
+using Microsoft.Extensions.Configuration;
 
 namespace MyApp.Infra.CrossCutting.Ioc
 {
     public static class NativeInjectorBootStrapper
     {        
-        public static void RegisterServices(IServiceCollection services)
+        public static void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
             // Domain Bus (Mediator)
             services.AddScoped<IMediatorHandler, InMemoryBus>();
@@ -77,6 +80,9 @@ namespace MyApp.Infra.CrossCutting.Ioc
 
 
             services.AddDbContext<ApplicationDbContext>();
+            var connection = configuration.GetConnectionString("DefaultConnection");
+            connection = "Server=.;Database=PrintImage;Trusted_Connection=True;MultipleActiveResultSets=true";
+            services.AddScoped<IBillQueries>(ops => new BillQueries(connection));
         }
 
     }

@@ -30,7 +30,7 @@ namespace MyApp.Services.API.Controllers
         }
         
         [HttpGet("all-bill-param")]
-        public async Task<IEnumerable<BillViewModel>> GetList([FromBody] BillParam param)
+        public async Task<IEnumerable<BillViewModel>> GetList()
         {
             
             return await billAppService.ListBill(new BillQueryModel() {  });
@@ -48,6 +48,12 @@ namespace MyApp.Services.API.Controllers
         {
             return ModelState.IsValid ? CustomResponse(await billAppService.Update(billViewModel))
                 : CustomResponse(billViewModel);
+        }
+
+        [HttpDelete("bills")]
+        public async Task<IActionResult> Delete([FromBody] Guid[] ids)
+        {
+            return CustomResponse(await billAppService.Delete(ids));
         }
     }
 

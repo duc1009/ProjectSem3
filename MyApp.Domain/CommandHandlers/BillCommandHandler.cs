@@ -55,16 +55,15 @@ namespace MyApp.Domain.CommandHandlers
 
                 await Commit(repository.UnitOfWork);
             }
-            var todoApp = await repository.GetById(message.Id);
-
-            if (todoApp is null)
+            foreach (var item in message.Ids)
             {
-                AddError("The Bill doesn't exists.");
-                return ValidationResult;
+                var existing =await repository.GetById(item);
+                if (existing != null)
+                {
+                    existing.IsDeleted = true;
+                    repository.Update(existing);                    
+                }
             }
-            repository.Remove(todoApp);
-
-
             return await Commit(repository.UnitOfWork);
         }
     }

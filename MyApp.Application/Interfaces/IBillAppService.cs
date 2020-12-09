@@ -14,7 +14,7 @@ namespace MyApp.Application.Interfaces
 
         Task<ValidationResult> Update(BillViewModel model);
         Task<IEnumerable<BillViewModel>> GetAll();
-        void Delete(Guid[] ids);
+        Task<ValidationResult> Delete(Guid[] ids);
         Task<IEnumerable<BillViewModel>> ListBill(BillQueryModel urlQuery);
         BillViewModel GetById(Guid id);
 

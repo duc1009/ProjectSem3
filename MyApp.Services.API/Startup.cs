@@ -56,7 +56,7 @@ namespace MyApp.Services.API
             services.AddMediatR(typeof(Startup));
 
             // .NET Native DI Abstraction
-            services.AddDependencyInjectionConfiguration();
+            services.AddDependencyInjectionConfiguration(Configuration);
         }
 
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)

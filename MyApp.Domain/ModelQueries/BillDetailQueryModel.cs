@@ -15,7 +15,7 @@ namespace MyApp.Domain.ModelQueries
     public class BillDetailDTO
     {
         public Guid Id { get; set; }
-        public string BillId { get; set; }
+        public Guid BillId { get; set; }
         public string Image { get; set; }
         public Guid SizeId { get; set; }
         public Guid MaterialId { get; set; }

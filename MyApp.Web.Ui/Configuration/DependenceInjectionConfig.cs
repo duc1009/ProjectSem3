@@ -9,7 +9,7 @@ namespace MyApp.Web.Ui.Configuration
         public static void AddDependencyInjectionConfiguration(this IServiceCollection services, Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
-            NativeInjectorBootStrapper.RegisterServices(services);
+            NativeInjectorBootStrapper.RegisterServices(services,configuration);
         }
     }
 }
