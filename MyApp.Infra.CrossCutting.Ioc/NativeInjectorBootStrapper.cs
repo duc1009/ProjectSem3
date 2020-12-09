@@ -12,6 +12,8 @@ using MyApp.Infra.CrossCutting.Bus;
 using MyApp.Domain.Commands.Validations;
 using MyApp.Domain.Commands.ManagerCommands;
 using MyApp.Domain.CommandHandlers;
+using MyApp.Domain.Commands.SizeCommands;
+using MyApp.Domain.Commands.PriceCommands;
 
 namespace MyApp.Infra.CrossCutting.Ioc
 {
@@ -40,6 +42,16 @@ namespace MyApp.Infra.CrossCutting.Ioc
             services.AddScoped<IRequestHandler<AddMaterialCommand, ValidationResult>, MaterialCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateMaterialCommand, ValidationResult>, MaterialCommandHandler>();
             services.AddScoped<IRequestHandler<DeleteMaterialCommand, ValidationResult>, MaterialCommandHandler>();
+
+            //Size
+            services.AddScoped<IRequestHandler<AddSizeCommand, ValidationResult>, SizeCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateSizeCommand, ValidationResult>, SizeCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteSizeCommand, ValidationResult>, SizeCommandHandler>();
+
+            //Price
+            services.AddScoped<IRequestHandler<AddPriceCommand, ValidationResult>, PriceCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdatePriceCommand, ValidationResult>, PriceCommandHandler>();
+            services.AddScoped<IRequestHandler<DeletePriceCommand, ValidationResult>, PriceCommandHandler>();
 
             //Domain - Command - manager
             services.AddScoped<IRequestHandler<CreateManagerCommand, ValidationResult>, ManagerCommandHandler>();

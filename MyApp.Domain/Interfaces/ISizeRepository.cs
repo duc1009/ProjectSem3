@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyApp.Domain.Interfaces
 {
-    public interface ISizeRepository :IRepository<Size>
+    public  interface ISizeRepository :IRepository<Size>
     {
         void Add(Size size);
         Task<Size> GetById(Guid id);
