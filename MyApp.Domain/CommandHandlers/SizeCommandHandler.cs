@@ -36,21 +36,17 @@ namespace MyApp.Domain.CommandHandlers
         public async Task<ValidationResult> Handle(UpdateSizeCommand message, CancellationToken cancellationToken)
         {
             if (!message.IsValid()) return message.ValidationResult;
-            var size = new Size(
-              message.Id,
-              message.Name
-              );
+
             var existingSize = await _repository.GetById(message.Id);
 
-            if (existingSize != null && existingSize.Id != size.Id)
+            if (existingSize == null)
             {
-                if (!existingSize.Equals(size))
-                {
-                    AddError("The size has already been taken.");
-                    return ValidationResult;
-                }
+                AddError("The size not found.");
+                return ValidationResult;
             }
+            existingSize.Name = message.Name;
 
+            _repository.Update(existingSize);
             return await Commit(_repository.UnitOfWork);
         }
 
@@ -68,7 +64,8 @@ namespace MyApp.Domain.CommandHandlers
                 AddError("The Material doesn't exists.");
                 return ValidationResult;
             }
-            _repository.Remove(size);
+            size.IsDeleted = true;
+            _repository.Update(size);
 
 
             return await Commit(_repository.UnitOfWork);
