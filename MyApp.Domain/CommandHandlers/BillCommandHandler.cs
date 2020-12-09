@@ -44,7 +44,7 @@ namespace MyApp.Domain.CommandHandlers
             {
                 existing.AddBillDetail(item);
             }
-            repository.Update(bill);
+            repository.Update(existing);
             return await Commit(repository.UnitOfWork);
         }
 
