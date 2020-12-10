@@ -11,13 +11,18 @@ using NetDevPack.Mediator;
 using MyApp.Infra.CrossCutting.Bus;
 using MyApp.Domain.Commands.Validations;
 using MyApp.Domain.Commands.ManagerCommands;
+using MyApp.Domain.CommandHandlers;
+using MyApp.Domain.Commands.SizeCommands;
+using MyApp.Domain.Commands.PriceCommands;
+using MyApp.Domain.Queries;
+using MyApp.Infra.Data.Queries;
+using Microsoft.Extensions.Configuration;
 
 namespace MyApp.Infra.CrossCutting.Ioc
 {
     public static class NativeInjectorBootStrapper
-    {
-        
-        public static void RegisterServices(IServiceCollection services)
+    {        
+        public static void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
             // Domain Bus (Mediator)
             services.AddScoped<IMediatorHandler, InMemoryBus>();
@@ -25,13 +30,36 @@ namespace MyApp.Infra.CrossCutting.Ioc
             // Application
             services.AddScoped<ITodoAppService, TodoAppService>();
             services.AddScoped<IManagerAppService, ManagerAppService>();
+            services.AddScoped<IMaterialAppService, MaterialAppService>();
+            services.AddScoped<IPriceAppService, PriceAppService>();
+            services.AddScoped<ISizeAppService, SizeAppService>();
+            services.AddScoped<IBillAppService, BillAppService>();
 
+            //services.AddScoped<IUser, AspNetUser>();
             // Domain - Commands - todoApp
             services.AddScoped<IRequestHandler<CreateTodoAppCommand, ValidationResult>, TodoAppCommandHandler>();
             services.AddScoped<IRequestHandler<ReportTodoAppCommand, ValidationResult>, TodoAppCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveTodoAppCommand, ValidationResult>, TodoAppCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateTodoAppCommand, ValidationResult>, TodoAppCommandHandler>();
             services.AddScoped<IRequestHandler<IsDoneTodoAppCommand, ValidationResult>, TodoAppCommandHandler>();
+            //Material
+            services.AddScoped<IRequestHandler<AddMaterialCommand, ValidationResult>, MaterialCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateMaterialCommand, ValidationResult>, MaterialCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteMaterialCommand, ValidationResult>, MaterialCommandHandler>();
+            //Bill
+            services.AddScoped<IRequestHandler<AddBillCommand, ValidationResult>, BillCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateBillCommand, ValidationResult>, BillCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteBillCommand, ValidationResult>, BillCommandHandler>();
+
+            //Size
+            services.AddScoped<IRequestHandler<AddSizeCommand, ValidationResult>, SizeCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateSizeCommand, ValidationResult>, SizeCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteSizeCommand, ValidationResult>, SizeCommandHandler>();
+
+            //Price
+            services.AddScoped<IRequestHandler<AddPriceCommand, ValidationResult>, PriceCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdatePriceCommand, ValidationResult>, PriceCommandHandler>();
+            services.AddScoped<IRequestHandler<DeletePriceCommand, ValidationResult>, PriceCommandHandler>();
 
             //Domain - Command - manager
             services.AddScoped<IRequestHandler<CreateManagerCommand, ValidationResult>, ManagerCommandHandler>();
@@ -41,7 +69,20 @@ namespace MyApp.Infra.CrossCutting.Ioc
             // Infra - Data
             services.AddScoped<ITodoAppRepository, TodoAppRepository>();
             services.AddScoped<IManagerRepository, ManagerRepository>();
+
+            //Material
+            services.AddScoped<IMaterialRepository, MaterialRepository>();
+            //Bill
+            services.AddScoped<IBillRepository, BillRepository>();
+
+            services.AddScoped<ISizeRepository, SizeRepository>();
+            services.AddScoped<IPriceRepository, PriceRepository>();
+
+
             services.AddDbContext<ApplicationDbContext>();
+            var connection = configuration.GetConnectionString("DefaultConnection");
+            connection = "Server=.;Database=PrintImage;Trusted_Connection=True;MultipleActiveResultSets=true";
+            services.AddScoped<IBillQueries>(ops => new BillQueries(connection));
         }
 
     }

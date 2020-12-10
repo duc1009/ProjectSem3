@@ -19,7 +19,7 @@ namespace MyApp.Infra.CrossCutting.Identity
             services.AddIdentityConfiguration();
 
             // Default JWT configuration from NetDevPack.Identity
-          // services.AddJwtConfiguration(configuration, "AppSettings");
+            //services.AddJwtConfiguration(configuration, "AppSettings");
         }
     }
 }

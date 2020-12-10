@@ -14,29 +14,29 @@ using Microsoft.AspNetCore.Http;
 
 namespace MyApp.Web.Ui
 {
-    public class Startup
+    public class    Startup
     {
         public IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-        //public Startup(IHostEnvironment env)
+        //public Startup(IConfiguration configuration)
         //{
-        //    var builder = new ConfigurationBuilder()
-        //        .SetBasePath(env.ContentRootPath)
-        //        .AddJsonFile("appsettings.json", true, true)
-        //        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true);
-
-        //    if (env.IsDevelopment())
-        //    {
-        //        builder.AddUserSecrets<Startup>();
-        //    }
-
-        //    builder.AddEnvironmentVariables();
-        //    Configuration = builder.Build();
+        //    Configuration = configuration;
         //}
+        public Startup(IHostEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", true, true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true);
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {

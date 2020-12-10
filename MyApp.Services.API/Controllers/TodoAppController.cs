@@ -30,41 +30,6 @@ namespace MyApp.Services.API.Controllers
             return await _todoAppService.GetById(id);
         }
 
-        [HttpGet("get-script")]
-        public IActionResult GetScript()
-        {
-            var script = "$('#button2').click(function() {alert('Goi thanh cong');});";
-            var result = new ContentResult
-            {
-                Content = script,
-                ContentType = "application/javascript"
-            };
-            return result;
-        }
-
-        [HttpGet("getFromQuery")]
-        public async Task<TodoAppViewModel> GetFromQuery([FromQuery] Guid id)
-        {
-            return await _todoAppService.GetById(id);
-        }
-
-        [HttpGet("getFromHeader")]
-        public async Task<TodoAppViewModel> GetFromHeader([FromHeader] Guid id)
-        {
-            var todoApp = await _todoAppService.GetById(id);
-            if (todoApp!=null)
-            {
-                return todoApp;
-            }
-            return todoApp;
-        }
-
-        [HttpGet("getByStatus/{status}")]
-        public async Task<IEnumerable<TodoAppViewModel>> Get(string status)
-        {
-            return await _todoAppService.FilterByStatus(status);
-        }
-
         [HttpPost("create")]
         public async Task<IActionResult> Post([FromForm] TodoAppViewModel todoAppViewModel)
         {

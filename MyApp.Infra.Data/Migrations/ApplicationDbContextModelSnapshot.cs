@@ -215,6 +215,106 @@ namespace MyApp.Infra.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MyApp.Domain.Models.Bill", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PaymentId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<Guid>("StatusId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<Guid>("StatusPayId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<double>("TotalMoney")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentId");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("StatusPayId");
+
+                    b.ToTable("Bill");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.BillDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<Guid>("BillId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("MaterialId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<Guid>("SizeId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BillId");
+
+                    b.HasIndex("MaterialId");
+
+                    b.HasIndex("SizeId");
+
+                    b.ToTable("BillDetail");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.Material", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Material");
+                });
+
             modelBuilder.Entity("MyApp.Domain.Models.MyManager", b =>
                 {
                     b.Property<string>("Id")
@@ -229,6 +329,116 @@ namespace MyApp.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MyManagers");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payment");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.Price", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("MaterialId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<Guid>("SizeId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<double>("Value")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MaterialId");
+
+                    b.HasIndex("SizeId");
+
+                    b.ToTable("Price");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.Size", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Size");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.Status", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Status");
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.StatusPay", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier")
+                        .HasMaxLength(40);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StatusPay");
                 });
 
             modelBuilder.Entity("MyApp.Domain.Models.TodoApp", b =>
@@ -310,6 +520,63 @@ namespace MyApp.Infra.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.Bill", b =>
+                {
+                    b.HasOne("MyApp.Domain.Models.Payment", null)
+                        .WithMany("Bills")
+                        .HasForeignKey("PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyApp.Domain.Models.Status", null)
+                        .WithMany("Bills")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyApp.Domain.Models.StatusPay", null)
+                        .WithMany("Bills")
+                        .HasForeignKey("StatusPayId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.BillDetail", b =>
+                {
+                    b.HasOne("MyApp.Domain.Models.Bill", null)
+                        .WithMany("BillDetails")
+                        .HasForeignKey("BillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyApp.Domain.Models.Material", null)
+                        .WithMany("BillDetails")
+                        .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyApp.Domain.Models.Size", null)
+                        .WithMany("BillDetails")
+                        .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MyApp.Domain.Models.Price", b =>
+                {
+                    b.HasOne("MyApp.Domain.Models.Material", null)
+                        .WithMany("Prices")
+                        .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyApp.Domain.Models.Size", null)
+                        .WithMany("Prices")
+                        .HasForeignKey("SizeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

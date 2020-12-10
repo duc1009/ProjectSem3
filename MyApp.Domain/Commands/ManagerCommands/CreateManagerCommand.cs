@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using MyApp.Domain.Commands.Validations;
-using MyApp.Domain.Commands.Validations.ManagerValidations;
-using System;
+﻿using MyApp.Domain.Commands.Validations.ManagerValidations;
 
 namespace MyApp.Domain.Commands.ManagerCommands
 {
