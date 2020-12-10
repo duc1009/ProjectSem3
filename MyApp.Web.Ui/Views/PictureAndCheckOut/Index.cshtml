@@ -7,6 +7,9 @@
     <title>Contact V5</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.css">
+    <script src="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="/UploadAndCheckOut/images/icons/favicon.ico" />
     <!--===============================================================================================-->
@@ -35,44 +38,96 @@
     <!--===============================================================================================-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!--===============================================================================================-->
+
+
+@*    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        h3 {
+            padding-bottom: 2rem
+        }
+
+   
+
+            body:after {
+                content: '';
+                position: absolute;
+                top: 0%;
+                left: 30%;
+                background: #bb3535;
+                width: 40%;
+                height: 100%;
+                z-index: -1;
+                transform: skew(-20deg)
+            }
+
+        .custom-file-container {
+            max-width: 400px;
+            margin: 100px auto;
+      
+        }
+       
+    </style>*@
 </head>
 <body>
-
+   
 
     <div class="container-contact100 ">
+
         <div class="wrap-contact100 ">
+   @*         <div class="custom-file-container" data-upload-id="myUniqueUploadId">
+               
+                <label>Upload File <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image"> </a></label>
+                <label class="custom-file-container__custom-file">
+                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" multiple aria-label="Choose File">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                    <span class="custom-file-container__custom-file__custom-file-control"></span>
+                </label>
+
+
+                <div class="custom-file-container__image-preview"></div>
+            </div>
+*@
+
+
+
+
+@*
+            <script>
+                var upload = new FileUploadWithPreview('myUniqueUploadId')
+            </script>*@
             <form class="contact100-form validate-form">
                 <!--UploadImage-->
-                <span class="contact100-form-title ">
-                    Upload Your Images
-                </span>
                 <div class="container">
-                    <div class="wrapper">
-                        <div class="image">
-                            <img src="" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
+                    <div class="form_upload_rp">
+                        <div class="wrapper">
+                            <div class="image">
+                                <img src="" alt="">
                             </div>
-                            <div class="text">
-                                No file chosen, yet!
+                            <div class="content">
+                                <div class="icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="text">
+                                    No file chosen, yet!
+                                </div>
+                            </div>
+                            <div id="cancel-btn">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="file-name">
+                                File name here
                             </div>
                         </div>
-                        <div id="cancel-btn">
-                            <i class="fas fa-times"></i>
-                        </div>
-                        <div class="file-name">
-                            File name here
-                        </div>
+                        <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
+                        <input id="default-btn" type="file" hidden>
                     </div>
-                    <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
-                    <input id="default-btn" type="file" hidden>
+                   
                 </div>
-
-
-
-
                 <!----------------------------CheckOut----------------------------------->
                 <div class="contact100-form-title">
                     CheckOut
@@ -135,50 +190,50 @@
 
 
                 @*  <div class="w-full dis-none js-show-service">
-                        <div class="wrap-contact100-form-radio">
-                            <span class="label-input100">What type of products do you sell?</span>
+            <div class="wrap-contact100-form-radio">
+                <span class="label-input100">What type of products do you sell?</span>
 
-                            <div class="contact100-form-radio m-t-15">
-                                <input class="input-radio100" id="radio1" type="radio" name="type-product" value="physical" checked="checked">
-                                <label class="label-radio100" for="radio1">
-                                    Phycical Products
-                                </label>
-                            </div>
+                <div class="contact100-form-radio m-t-15">
+                    <input class="input-radio100" id="radio1" type="radio" name="type-product" value="physical" checked="checked">
+                    <label class="label-radio100" for="radio1">
+                        Phycical Products
+                    </label>
+                </div>
 
-                            <div class="contact100-form-radio">
-                                <input class="input-radio100" id="radio2" type="radio" name="type-product" value="digital">
-                                <label class="label-radio100" for="radio2">
-                                    Digital Products
-                                </label>
-                            </div>
+                <div class="contact100-form-radio">
+                    <input class="input-radio100" id="radio2" type="radio" name="type-product" value="digital">
+                    <label class="label-radio100" for="radio2">
+                        Digital Products
+                    </label>
+                </div>
 
-                            <div class="contact100-form-radio">
-                                <input class="input-radio100" id="radio3" type="radio" name="type-product" value="service">
-                                <label class="label-radio100" for="radio3">
-                                    Services Consulting
-                                </label>
-                            </div>
-                        </div>
+                <div class="contact100-form-radio">
+                    <input class="input-radio100" id="radio3" type="radio" name="type-product" value="service">
+                    <label class="label-radio100" for="radio3">
+                        Services Consulting
+                    </label>
+                </div>
+            </div>
 
-                        <div class="wrap-contact100-form-range">
-                            <span class="label-input100">Budget *</span>
+            <div class="wrap-contact100-form-range">
+                <span class="label-input100">Budget *</span>
 
-                            <div class="contact100-form-range-value">
-                                $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
-                                <input type="text" name="from-value">
-                                <input type="text" name="to-value">
-                            </div>
+                <div class="contact100-form-range-value">
+                    $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
+                    <input type="text" name="from-value">
+                    <input type="text" name="to-value">
+                </div>
 
-                            <div class="contact100-form-range-bar">
-                                <div id="filter-bar"></div>
-                            </div>
-                        </div>
-                    </div>*@
+                <div class="contact100-form-range-bar">
+                    <div id="filter-bar"></div>
+                </div>
+            </div>
+        </div>*@
 
                 @*  <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Please Type Your Message">
-                        <span class="label-input100">Message</span>
-                        <textarea class="input100" name="message" placeholder="Your message here..."></textarea>
-                    </div>*@
+            <span class="label-input100">Message</span>
+            <textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+        </div>*@
                 <!--Picture Information-->
                 <div class="contact_title">Bill Infomation</div>
                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
