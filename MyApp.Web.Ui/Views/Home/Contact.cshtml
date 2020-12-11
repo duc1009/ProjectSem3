@@ -1,0 +1,260 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <title>Colorway</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/Contact/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Contact/css/animations.css">
+    <link rel="stylesheet" href="/Contact/css/fonts.css">
+    <link rel="stylesheet" href="/Contact/css/main.css" class="color-switcher-link">
+    <link rel="stylesheet" href="/Contact/css/shop.css" class="color-switcher-link">
+    <script src="/Contact/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/Contact/js/vendor/html5shiv.min.js"></script>
+        <script src="/Contact/js/vendor/respond.min.js"></script>
+        <script src="/Contact/js/vendor/jquery-1.12.4.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="/Contact/http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->
+    <div class="preloader">
+        <div class="preloader_image"></div>
+    </div>
+    <!-- search modal -->
+    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+                <i class="rt-icon2-cross2"></i>
+            </span>
+        </button>
+        <div class="widget widget_search">
+            <form method="get" class="searchform search-form form-inline" action="./">
+                <div class="form-group bottommargin_0"> <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input"> </div> <button type="submit" class="theme_button color1 no_bg_button">Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- Unyson messages modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+        <div class="fw-messages-wrap ls with_padding">
+            <!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+            <!--
+            <ul class="list-unstyled">
+                <li>Message To User</li>
+            </ul>
+            -->
+        </div>
+    </div>
+    <!-- eof .modal -->
+    <!-- wrappers for visual page editor and boxed version of template -->
+    <div id="canvas">
+        <div id="box_wrapper">
+            <!-- template sections -->
+            <div class="transparent_wrapper">
+                <header class="page_header header_v2 header_white toggler_xxs_right">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 display-flex v-center">
+                                <div class="header_left_logo">
+                                    <a href="/Contact/./" class="logo">
+                                        <img src="/Contact/images/logo-light.png" alt="">
+                                        <img src="/Contact/images/logo.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="header_mainmenu text-center">
+                                    <!-- main nav start -->
+                                    <nav class="mainmenu_wrapper">
+                                        <ul class="mainmenu nav sf-menu">
+                                            <li class="active">
+                                                <a href="@Url.Action("index","Home")"><span>Home</span></a>
+                                               
+                                            </li>
+                       
+                                            <li> <a href="@Url.Action("Service","Home")"><span>Services</span></a> </li>
+                                            <li>
+                                                <a href="@Url.Action("About","Home")"><span>About</span></a>
+                                               
+                                                <!-- eof mega menu -->
+                                            </li>
+                                            <!-- eof features -->
+                                            <!-- shop -->
+                               
+                                            <!-- eof blog -->
+                                            <!-- contacts -->
+                                            <li>
+                                                <a href="@Url.Action("Contact","Home")"><span>Contact</span></a>
+                                               
+                                            </li>
+                                            <!-- eof contacts -->
+                                        </ul>
+                                    </nav>
+                                    <!-- eof main nav -->
+                                    <!-- header toggler --><span class="toggle_menu"><span></span></span>
+                                </div>
+                                <div class="header_right_buttons text-right hidden-xxs">
+                                    <p class="page_social bottommargin_25"> <a href="/Contact/#" class="social-icon color-bg-icon rounded-icon socicon-facebook"></a> <a href="/Contact/#" class="social-icon color-bg-icon rounded-icon socicon-twitter"></a> <a href="/Contact/#" class="social-icon color-bg-icon rounded-icon socicon-googleplus"></a>										</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <section class="page_breadcrumbs ds background_cover section_padding_25">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h1>Contact 4</h1>
+                            <ol class="breadcrumb darklinks">
+                                <li>
+                                    <a href="/Contact/./">
+                                        Home
+                                    </a>
+                                </li>
+                                <li> <a href="/Contact/#">Pages</a> </li>
+                                <li class="active"> <span>Contact 4</span> </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ls columns_padding_30 section_padding_top_150 section_padding_bottom_110">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2>Contact Form</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 to_animate" data-animation="scaleAppear">
+                            <form class="contact-form columns_padding_10 bottommargin_40" method="post" action="./">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group bottommargin_0"> <label for="name">Full Name <span class="required">*</span></label> <i class="fa fa-user highlight" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Full Name">											</div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group bottommargin_0"> <label for="phone">Phone Number<span class="required">*</span></label> <i class="fa fa-phone highlight" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="Phone Number">											</div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group bottommargin_0"> <label for="email">Email address<span class="required">*</span></label> <i class="fa fa-envelope highlight" aria-hidden="true"></i> <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Email Address">											</div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group bottommargin_0"> <label for="subject">Subject<span class="required">*</span></label> <i class="fa fa-flag highlight" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Subject">											</div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="contact-form-message form-group bottommargin_0"> <label for="message">Message</label> <i class="fa fa-comment highlight" aria-hidden="true"></i> <textarea aria-required="true" rows="3" cols="45" name="message" id="message" class="form-control" placeholder="Message"></textarea> </div>
+                                    </div>
+                                    <div class="col-sm-12 bottommargin_0">
+                                        <div class="contact-form-submit topmargin_10"> <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 margin_0">Send message</button> </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 to_animate" data-animation="scaleAppear">
+                            <ul class="list1 no-bullets no-top-border no-bottom-border">
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left"> <i class="rt-icon2-shop highlight fontsize_18"></i> </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading grey">Postal Address:</h6> PO Box 97845 Some str. 567, Los Angeles, California, United States
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left"> <i class="rt-icon2-phone5 highlight fontsize_18"></i> </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading grey">Phone:</h6> 8(800) 123-12345
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left"> <i class="rt-icon2-stack4 highlight fontsize_18"></i> </div>
+                                        <div class="media-body">
+                                            <h6 class="media-heading grey">Fax:</h6> 8(800) 123-12345
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <div class="media-left"> <i class="rt-icon2-mail highlight fontsize_18"></i> </div>
+                                        <div class="media-body greylinks">
+                                            <h6 class="media-heading grey">Email:</h6> <a href="/Contact/mailto:your@mail.com">support@yourname.com</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="map" class="ls" data-address="522 Chapel St, South Yarra VIC 3141, Australia">
+                <!-- marker description and marker icon goes here -->
+                <div class="map_marker_description">
+                    <h3>Map Title</h3>
+                    <p>Map description text</p> <img class="map_marker_icon" src="/Contact/images/map_marker_icon.png" alt="">
+                </div>
+            </section>
+            <footer class="page_footer cs main_color7 section_padding_top_110 section_padding_bottom_120 columns_margin_bottom_30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight3"> <img src="/Contact/images/clr-phone-call-3.png" alt=""> </div>
+                                <p> <span class="small-text highlight3">call us 24/7</span><br> <span class="big black">0-800-234-5678</span> </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight8"> <img src="/Contact/images/clr-mail-5.png" alt=""> </div>
+                                <p> <span class="small-text highlight8">write us</span><br> <span class="big black darklinks"><a href="/Contact/mailto:#">cway@support.com</a></span> </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight9"> <img src="/Contact/images/clr-clock-5.png" alt=""> </div>
+                                <p> <span class="small-text highlight9">7 days a week</span><br> <span class="big black">9:00am - 8:00PM</span> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <section class="page_copyright cs section_padding_top_110 section_padding_bottom_100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <p class="page_social bottommargin_20"> <a href="/Contact/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-facebook"></a> <a href="/Contact/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-twitter"></a> <a href="/Contact/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-googleplus"></a>								</p>
+                            <p class="small-text black">&copy; Copyright 2018 All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- eof #box_wrapper -->
+    </div>
+    <!-- eof #canvas -->
+    <script src="/Contact/js/compressed.js"></script>
+    <script src="/Contact/js/main.js"></script>
+    <!-- Google Map Script -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTwYSMRGuTsmfl2z_zZDStYqMlKtrybxo"></script>
+</body>
+
+</html>

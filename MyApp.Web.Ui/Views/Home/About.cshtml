@@ -1,0 +1,279 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <title>Colorway</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/About/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/About/css/animations.css">
+    <link rel="stylesheet" href="/About/css/fonts.css">
+    <link rel="stylesheet" href="/About/css/main.css" class="color-switcher-link">
+    <link rel="stylesheet" href="/About/css/shop.css" class="color-switcher-link">
+    <script src="/About/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/About/js/vendor/html5shiv.min.js"></script>
+        <script src="/About/js/vendor/respond.min.js"></script>
+        <script src="/About/js/vendor/jquery-1.12.4.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="/About/http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->
+    <div class="preloader">
+        <div class="preloader_image"></div>
+    </div>
+    <!-- search modal -->
+    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+                <i class="rt-icon2-cross2"></i>
+            </span>
+        </button>
+        <div class="widget widget_search">
+            <form method="get" class="searchform search-form form-inline" action="./">
+                <div class="form-group bottommargin_0"> <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input"> </div> <button type="submit" class="theme_button color1 no_bg_button">Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- Unyson messages modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+        <div class="fw-messages-wrap ls with_padding">
+            <!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+            <!--
+            <ul class="list-unstyled">
+                <li>Message To User</li>
+            </ul>
+            -->
+        </div>
+    </div>
+    <!-- eof .modal -->
+    <!-- wrappers for visual page editor and boxed version of template -->
+    <div id="canvas">
+        <div id="box_wrapper">
+            <!-- template sections -->
+            <div class="transparent_wrapper">
+                <header class="page_header header_v2 header_white toggler_xxs_right">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 display-flex v-center">
+                                <div class="header_left_logo">
+                                    <a href="/About/./" class="logo">
+                                        <img src="/About/images/logo-light.png" alt="">
+                                        <img src="/About/images/logo.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="header_mainmenu text-center">
+                                    <!-- main nav start -->
+                                    <nav class="mainmenu_wrapper">
+                                        <ul class="mainmenu nav sf-menu">
+                                            <li class="active">
+                                                <a href="@Url.Action("Index","Home")"><span>Home</span></a>
+                                               
+                                            </li>
+                                    
+                                            <li> <a href="@Url.Action("Service")"><span>Services</span></a> </li>
+                                            <li>
+                                                <a href="@Url.Action("About","Home")"><span>About</span></a>
+                                                
+                                                <!-- eof mega menu -->
+                                            </li>
+                                            <!-- eof features -->
+                                            <!-- shop -->
+                                  
+                                            <!-- eof blog -->
+                                            <!-- contacts -->
+                                            <li>
+                                                <a href="@Url.Action("Contact","Home")"><span>Contact</span></a>
+
+                                            </li>
+                                            <!-- eof contacts -->
+                                        </ul>
+                                    </nav>
+                                    <!-- eof main nav -->
+                                    <!-- header toggler --><span class="toggle_menu"><span></span></span>
+                                </div>
+                                <div class="header_right_buttons text-right hidden-xxs">
+                                    <p class="page_social bottommargin_25"> <a href="/About/#" class="social-icon color-bg-icon rounded-icon socicon-facebook"></a> <a href="/About/#" class="social-icon color-bg-icon rounded-icon socicon-twitter"></a> <a href="/About/#" class="social-icon color-bg-icon rounded-icon socicon-googleplus"></a>										</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <section class="page_breadcrumbs ds background_cover section_padding_25">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h1>About</h1>
+                            <ol class="breadcrumb darklinks">
+                                <li>
+                                    <a href="@Url.Action("Index","Home")">
+                                        Home
+                                    </a>
+                                </li>
+                                <li> <a href="/About/#">Pages</a> </li>
+                                <li class="active"> <span>About</span> </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="about-single" class="ls section_padding_top_150 section_padding_bottom_150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <img src="/About/images/about.png" alt="" class="alignleft cover-image"> <span class="above_heading highlight">Welcome</span>
+                            <h2 class="section_header">Colorway is the leader in defferent format printing</h2>
+                            <p>
+                                With over 30 years of experience, we specialize in variety of high quality services and products including wall murals, event graphics, tradeshow displays, vehicle wraps, and window graphics. Mea congue diceret amet singulis id, accusam legendos
+                                accusata eum ad, quo facer malorum maiestatis ea. Quo cu pertinax assentior vulputate, id ullum boborum impetus amet ludus has ex In eam nulla veniam accusam. Elit evertitur veritus sale duo. Has at purto patrioque, eu mei augue splendide eu ius
+                                soluta ignota nonumes. No duo autem tacimates. His no appetere has singulis, ex mutat dicam pri. Iisque appetere sed id, in has persecuti rationibus cum. Movet abhorreant persequeris mea et, at nihil vituperata mei. Id saepe intellegebat quo,
+                                vel ei dicunt ludus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="featured-video" class="cs main_color5 overlay_color parallax section_padding_top_150 section_padding_bottom_150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <a href="/About/https://www.youtube.com/watch?v=2Kvl0vpV6lM" class="theme_button bg_button color3 round_button play_button margin_0" data-gal="prettyPhoto[gal-video]">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                            </a>
+                            <div class="toppadding_30 visible-lg"></div>
+                            <div class="toppadding_30"></div> <span class="above_heading highlight2">Video Presentation</span>
+                            <h2 class="section_header black">Our Working Process</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="products" class="ls section_padding_top_150 section_padding_bottom_145">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <span class="above_heading highlight">Products</span>
+                            <h2 class="section_header">We will help you look<br> professional</h2>
+                            <div class="row flex-wrap loop-colors columns_padding_30 columns_margin_bottom_50">
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="teaser hover-teaser main_bg_color big-padding text-center">
+                                        <div>
+                                            <div class="teaser_icon highlight size_small"> <i class="clr-service-card"></i> </div>
+                                            <h3 class="entry-title small bottommargin_0">Business cards</h3>
+                                            <p>Starting at $9.99</p>
+                                        </div> <a href="/About/shop.html" class="abs-link"></a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="teaser hover-teaser main_bg_color big-padding text-center">
+                                        <div>
+                                            <div class="teaser_icon highlight size_small"> <i class="clr-service-booklet"></i> </div>
+                                            <h3 class="entry-title small bottommargin_0">Brochures</h3>
+                                            <p>Starting at $6.99</p>
+                                        </div> <a href="/About/shop.html" class="abs-link"></a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="teaser hover-teaser main_bg_color big-padding text-center">
+                                        <div>
+                                            <div class="teaser_icon highlight size_small"> <i class="clr-service-copy"></i> </div>
+                                            <h3 class="entry-title small bottommargin_0">Copy services</h3>
+                                            <p>Starting at $4.99</p>
+                                        </div> <a href="/About/shop.html" class="abs-link"></a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="teaser hover-teaser main_bg_color big-padding text-center">
+                                        <div>
+                                            <div class="teaser_icon highlight size_small"> <i class="clr-service-t-shirt"></i> </div>
+                                            <h3 class="entry-title small bottommargin_0">T-shirt prints</h3>
+                                            <p>Starting at $14.99</p>
+                                        </div> <a href="/About/shop.html" class="abs-link"></a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="teaser hover-teaser main_bg_color big-padding text-center">
+                                        <div>
+                                            <div class="teaser_icon highlight size_small"> <i class="clr-service-calendar"></i> </div>
+                                            <h3 class="entry-title small bottommargin_0">Calendars</h3>
+                                            <p>Starting at $19.99</p>
+                                        </div> <a href="/About/shop.html" class="abs-link"></a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="teaser hover-teaser main_bg_color big-padding text-center">
+                                        <div>
+                                            <div class="teaser_icon highlight size_small"> <i class="clr-service-banner"></i> </div>
+                                            <h3 class="entry-title small bottommargin_0">Banners</h3>
+                                            <p>Starting at $49.99</p>
+                                        </div> <a href="/About/shop.html" class="abs-link"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toppadding_20"></div>
+                            <div class="toppadding_20 visible-lg"></div> <a href="/About/#" class="theme_button color1">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="page_footer cs main_color7 section_padding_top_110 section_padding_bottom_120 columns_margin_bottom_30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight3"> <img src="/About/images/clr-phone-call-3.png" alt=""> </div>
+                                <p> <span class="small-text highlight3">call us 24/7</span><br> <span class="big black">0-800-234-5678</span> </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight8"> <img src="/About/images/clr-mail-5.png" alt=""> </div>
+                                <p> <span class="small-text highlight8">write us</span><br> <span class="big black darklinks"><a href="/About/mailto:#">cway@support.com</a></span> </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight9"> <img src="/About/images/clr-clock-5.png" alt=""> </div>
+                                <p> <span class="small-text highlight9">7 days a week</span><br> <span class="big black">9:00am - 8:00PM</span> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <section class="page_copyright cs section_padding_top_110 section_padding_bottom_100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <p class="page_social bottommargin_20"> <a href="/About/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-facebook"></a> <a href="/About/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-twitter"></a> <a href="/About/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-googleplus"></a>								</p>
+                            <p class="small-text black">&copy; Copyright 2018 All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- eof #box_wrapper -->
+    </div>
+    <!-- eof #canvas -->
+    <script src="/About/js/compressed.js"></script>
+    <script src="/About/js/selectize.min.js"></script>
+    <script src="/About/js/main.js"></script>
+</body>
+
+</html>
