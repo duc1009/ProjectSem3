@@ -1,372 +1,466 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Contact V5</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.css">
-    <script src="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="/UploadAndCheckOut/images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/vendor/noui/nouislider.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/css/site.css">
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/css/util.css">
-    <link rel="stylesheet" type="text/css" href="/UploadAndCheckOut/css/main.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--===============================================================================================-->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!--===============================================================================================-->
-
-
-@*    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-
-        h3 {
-            padding-bottom: 2rem
-        }
-
-   
-
-            body:after {
-                content: '';
-                position: absolute;
-                top: 0%;
-                left: 30%;
-                background: #bb3535;
-                width: 40%;
-                height: 100%;
-                z-index: -1;
-                transform: skew(-20deg)
-            }
-
-        .custom-file-container {
-            max-width: 400px;
-            margin: 100px auto;
-      
-        }
-       
-    </style>*@
+    <link rel="stylesheet" href="~/UploadAndCheckOut/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/UploadAndCheckOut/css/site.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="~/UploadAndCheckOut/css/index.css" rel="stylesheet" />
+    <link href="~/UploadAndCheckOut/css/select2-custom.css" rel="stylesheet" />
+    <link href="~/UploadAndCheckOut/css/layout.css" rel="stylesheet" />
+    <link href="~/UploadAndCheckOut/css/site.css" rel="stylesheet" />
 </head>
+<script>
+    function select_card(e) {
+        if (e.value == 1) {
+            $(".card_number").show();
+            $(".cvv_number").show();
+        }
+        else {
+            $(".card_number").hide();
+            $(".cvv_number").hide();
+        }
+    }
+</script>
 <body>
-   
-
-    <div class="container-contact100 ">
-
-        <div class="wrap-contact100 ">
-   @*         <div class="custom-file-container" data-upload-id="myUniqueUploadId">
-               
-                <label>Upload File <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image"> </a></label>
-                <label class="custom-file-container__custom-file">
-                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" multiple aria-label="Choose File">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-                    <span class="custom-file-container__custom-file__custom-file-control"></span>
-                </label>
-
-
-                <div class="custom-file-container__image-preview"></div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="page-toolbar-wrapper">
+                <div>
+                    <div class="page-toolbar">
+                        <ul class="fd">
+                            <li class="item fd-disabled">
+                                <h1 class="section-caption">invoice list</h1>
+                            </li>
+                            <li class="dxm-alignSpacing" style="width: 100%;"></li>
+                            <li style="min-width: 77px;" class="btn-action-wrapper" data-toggle="modal" data-target="#addHoaDonModal">
+                                <div class="btn-action">
+                                    <img class="dx-vam" src="~/UploadAndCheckOut/Content/Images/add.svg" alt="">
+                                    <span class="text-button">Add</span>
+                                </div>
+                            </li>
+                            <li style="min-width: 77px;" class="btn-action-wrapper btn-edit-hoadon">
+                                <div class="btn-action">
+                                    <img class="dx-vam" src="~/UploadAndCheckOut/Content/Images/edit.svg" alt="">
+                                    <span class="text-button">Edit</span>
+                                </div>
+                            </li>
+                            <li style="min-width: 77px;" class="btn-action-wrapper btn-delete-hoadon">
+                                <div class="btn-action">
+                                    <img class="dx-vam" src="~/UploadAndCheckOut/Content/Images/delete.svg" alt="">
+                                    <span class="text-button">Delete</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-*@
+            <div class="content-page-wrapper">
+                <section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tbl-input tbl-hd">
+                                <div class="table-hoadon-wrapper">
+                                    <table id="tblDanhSachHoaDon">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Bills Code</th>
+                                                <th>Customer Code</th>
+                                                <th>Shipping Status</th>
+                                                <th>Money</th>
+                                            </tr>
+                                           @* <tr class="filter">
+                                                <td>
+                                                    <input type="text" id="dpNgayLapFilter" class="txt-input-table" placeholder="Ngày lập" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table input-filter" id="soHDFilter" placeholder="Tìm số HĐ" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table input-filter" id="maKHFilter" placeholder="Tìm mã khách" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table" placeholder="" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table" placeholder="" />
+                                                </td>
+                                            </tr>*@
+                                        </thead>
+                                        <tbody></tbody>
 
-
-
-
-@*
-            <script>
-                var upload = new FileUploadWithPreview('myUniqueUploadId')
-            </script>*@
-            <form class="contact100-form validate-form">
-                <!--UploadImage-->
-                <div class="container">
-                    <div class="form_upload_rp">
-                        <div class="wrapper">
-                            <div class="image">
-                                <img src="" alt="">
-                            </div>
-                            <div class="content">
-                                <div class="icon">
-                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    </table>
                                 </div>
-                                <div class="text">
-                                    No file chosen, yet!
+
+                                <div class="pagination-container">
                                 </div>
-                            </div>
-                            <div id="cancel-btn">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div class="file-name">
-                                File name here
                             </div>
                         </div>
-                        <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
-                        <input id="default-btn" type="file" hidden>
                     </div>
-                   
-                </div>
-                <!----------------------------CheckOut----------------------------------->
-                <div class="contact100-form-title">
-                    CheckOut
-                </div>
+                </section>
+            </div>
+            <!-- Modal  Add -->
+            <div class="modal fade" id="addHoaDonModal" role="dialog" aria-labelledby="addHoaDonModalLabel" aria-hidden="true">
+                <div class="modal-dialog add-hoa-don-modal" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addHoaDonModalLabel">Add invoice</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Shipping Address</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <select class="select-box js-example-basic-single" id="tuyenKhachHang" name="state" style="width: 100%; height: 35px;">
+                                            </select>*@
+                                        <input class="txt-input" id="Shipping_Address" placeholder="Shipping Address" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Phone Number</span>
+                                    </div>
+                                    <div class="item-form">
 
-                <!--Customer Information-->
-                <div class="contact_title">Customer Infomation</div>
-                <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-                    <span class="label-input100">FULL NAME *</span>
-                    <input class="input100" type="text" name="name" placeholder="Enter Your Name">
-                </div>
+                                        <input class="txt-input" id="phone_number" placeholder="Phone Number" />
+                                    </div>
+                                </div>
 
-                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Enter Your Email (e@a.x)">
-                    <span class="label-input100">Email *</span>
-                    <input class="input100" type="text" name="email" placeholder="Enter Your Email ">
-                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Payment methods</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <input class="txt-input" id="tenKhachHang" placeholder="Tên khách hàng" />*@
+                                        <select class="select-box" id="payment_method" name="state" style="width:100%;height:35px;" onchange="select_card(this)">
+                                            <option value="0">Please choose</option>
+                                            <option value="1">Card</option>
+                                            <option value="2">Postpaid</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                <div class="wrap-input100 bg1 rs1-wrap-input100">
-                    <span class="label-input100">Phone </span>
-                    <input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
-                </div>
-                <div class="wrap-input100 validate-input bg1">
-                    <span class="label-input100">Address *</span>
-                    <input class="input100" type="text" name="adress" placeholder="Enter Your Address">
-                </div>
+                                <div class="col-md-4 card_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Card Number</span>
+                                    </div>
+                                    <div class="item-form">
 
-                <!--Picture Information-->
-                <div class="contact_title">Picture Infomation</div>
+                                        <input class="txt-input" id="Shipping_Address" placeholder="card number" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 cvv_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">CVV</span>
+                                    </div>
+                                    <div class="item-form">
 
-                <div class="wrap-input100 bg1 rs1-wrap-input100 ">
-                    <span class="label-input100">Size Of Picture *</span>
-                    <div>
-                        <select class="js-select2" name="service">
-                            <option>Please chooses</option>
-                            <option>3x2</option>
-                            <option>4x6</option>
-                        </select>
-                        <div class="dropDownSelect2"></div>
+                                        <input class="txt-input" id="Shipping_Address" placeholder="cvv" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 ">
+                                    <div class="item-form">
+                                        <span class="lbl-input ">Date</span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input type="text" id="dpNgayLap" class="txt-input-table" placeholder="Choose date..." />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="item-form chi-tiet-row">
+                                        <span class="lbl-input" style="display: inline">Images</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tbl-input">
+                                        <table id="tblAddHoaDon" class="tbl-responsive">
+                                            <thead>
+                                                <tr>
+
+                                                    <th style="width: 50px">Image</th>
+                                                    <th>Size</th>
+                                                    <th style="width: 50px">Quantity</th>
+                                                    <th>Material</th>
+                                                    <th>
+                                                        Unit price
+                                                    </th>
+                                                    <th>Total price</th>
+                                                    <th> Delete </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        @* <input class="txt-input-table so-luong-ban" value="" placeholder="Số lượng bán" />*@
+                                                        <form action="/action_page.php">
+
+                                                            <input type="file" id="img" name="img" accept="image/*">
+
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <select class="select-box hangTra" name="state" style="width:100%;height:35px;">
+                                                            <option>3x2</option>
+                                                            <option>4x6</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input class="txt-input-table so-luong-tra" value="" style="width:100%;" placeholder="Số lượng trả" />
+                                                    </td>
+                                                    <td>
+                                                        @*      <input class="txt-input-table don-gia" value="" placeholder="Giá bán" />*@
+                                                        <select class="select-box hangTra" name="state" style="width:100%;height:35px;">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input class="txt-input-table don-gia" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="txt-input-table thanh-tien" />
+                                                    </td>
+                                                    <td>
+                                                        <span class="icon-delete" onclick='deleteRow(this)'>X</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <span style="float: right; margin-top: 5px;" id="addRowBottom">+ Add more</span>
+                                </div>
+                                @*<div class="col-md-12">
+                                    <span id="errorDataAddMessage" class="error-message">vui lòng kiểm tra dữ liệu đầu vào</span>
+                                </div>*@
+                                <div class="col-md-12">
+                                    <div class="lbl-sum" style="margin-top: 5px; margin-bottom: 10px">Total money: <span class="lbl-sum" id="tongTien"></span></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Pay: </span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input class="txt-input" id="tienThu" />
+                                    </div>
+                                </div>
+                                @*  <div class="col-md-12">
+                                        <div class="item-form">
+                                            <span class="lbl-input">Diễn giải</span>
+                                        </div>
+                                        <div class="item-form">
+                                            <textarea style="height: 70px" class="txt-input" id="txtDienGiai"></textarea>
+                                        </div>
+                                    </div>*@
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <span type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</span>
+                            <span type="button" class="btn btn-orange" id="btnAddHoaDon">Submit</span>
+                        </div>
                     </div>
-                </div>
-                <div class="wrap-input100 bg1 rs1-wrap-input100 ">
-                    <span class="label-input100">Material *</span>
-                    <div>
-                        <select class="js-select2" name="service">
-                            <option>Please chooses</option>
-                            <option>soft paper </option>
-                            <option>board</option>
-                        </select>
-                        <div class="dropDownSelect2"></div>
-                    </div>
-                </div>
-                <div class="wrap-input100 validate-input bg1">
-                    <span class="label-input100">Price *</span>
-                    <input class="input100" type="text" name="price">
-                </div>
-                <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Please Type Your Message">
-                    <span class="label-input100">Message</span>
-                    <textarea class="input100" name="message" placeholder="Your message here..."></textarea>
-                </div>
-
-
-                @*  <div class="w-full dis-none js-show-service">
-            <div class="wrap-contact100-form-radio">
-                <span class="label-input100">What type of products do you sell?</span>
-
-                <div class="contact100-form-radio m-t-15">
-                    <input class="input-radio100" id="radio1" type="radio" name="type-product" value="physical" checked="checked">
-                    <label class="label-radio100" for="radio1">
-                        Phycical Products
-                    </label>
-                </div>
-
-                <div class="contact100-form-radio">
-                    <input class="input-radio100" id="radio2" type="radio" name="type-product" value="digital">
-                    <label class="label-radio100" for="radio2">
-                        Digital Products
-                    </label>
-                </div>
-
-                <div class="contact100-form-radio">
-                    <input class="input-radio100" id="radio3" type="radio" name="type-product" value="service">
-                    <label class="label-radio100" for="radio3">
-                        Services Consulting
-                    </label>
                 </div>
             </div>
+            <!-- Modal  Edit -->
+            <div class="modal fade" id="editHoaDonModal" role="dialog" aria-labelledby="editHoaDonModalLabel" aria-hidden="true">
+                <div class="modal-dialog add-hoa-don-modal" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addHoaDonModalLabel">Edit Bill</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Shipping Address</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <select class="select-box js-example-basic-single" id="tuyenKhachHang" name="state" style="width: 100%; height: 35px;">
+                                            </select>*@
+                                        <input class="txt-input" id="Shipping_Address" placeholder="Shipping Address" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Phone Number</span>
+                                    </div>
+                                    <div class="item-form">
 
-            <div class="wrap-contact100-form-range">
-                <span class="label-input100">Budget *</span>
+                                        <input class="txt-input" id="phone_number" placeholder="Phone Number" />
+                                    </div>
+                                </div>
 
-                <div class="contact100-form-range-value">
-                    $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
-                    <input type="text" name="from-value">
-                    <input type="text" name="to-value">
-                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Payment methods</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <input class="txt-input" id="tenKhachHang" placeholder="Tên khách hàng" />*@
+                                        <select class="select-box" id="payment_method" name="state" style="width:100%;height:35px;" onchange="select_card(this)">
+                                            <option value="0">Please choose</option>
+                                            <option value="1">Card</option>
+                                            <option value="2">Postpaid</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                <div class="contact100-form-range-bar">
-                    <div id="filter-bar"></div>
+                                <div class="col-md-4 card_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Card Number</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="Shipping_Address" placeholder="card number" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 cvv_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">CVV</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="Shipping_Address" placeholder="cvv" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 ">
+                                    <div class="item-form">
+                                        <span class="lbl-input ">Date</span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input type="text" id="dpNgayLap" class="txt-input-table" placeholder="Choose date..." />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="item-form chi-tiet-row">
+                                        <span class="lbl-input" style="display: inline">Images</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tbl-input">
+                                        <table id="tblEditHoaDon" class="tbl-responsive">
+                                            <thead>
+                                                <tr>
+
+                                                    <th style="width: 50px">Image</th>
+                                                    <th>Size</th>
+                                                    <th style="width: 50px">Quantity</th>
+                                                    <th>Material</th>
+                                                    <th>
+                                                        Unit price
+                                                    </th>
+                                                    <th>Total price</th>
+                                                    <th> Delete </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <span style="float: right; margin-top: 5px;" id="addRowEdit">+ Thêm chi tiết</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span id="errorDataEditMessage" class="error-message">vui lòng kiểm tra dữ liệu đầu vào</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="lbl-sum" style="margin-top: 5px; margin-bottom: auto">Tổng tiền: <span class="lbl-sum" id="tongTienEdit"></span></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Tiền thu</span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input class="txt-input" id="tienThuEdit" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <span type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</span>
+                            <span type="button" class="btn btn-orange" id="btnEditHoaDon">Submit</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>*@
-
-                @*  <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate="Please Type Your Message">
-            <span class="label-input100">Message</span>
-            <textarea class="input100" name="message" placeholder="Your message here..."></textarea>
-        </div>*@
-                <!--Picture Information-->
-                <div class="contact_title">Bill Infomation</div>
-                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
-                    <span class="label-input100">Total Money *</span>
-                    <input class="input100" type="text" name="money" placeholder="$">
-                </div>
-
-                <div class="wrap-input100 bg1 rs1-wrap-input100">
-                    <span class="label-input100">Date </span>
-                    <input class="input100" type="text" name="date" placeholder="MM/DD/YYYY">
-                </div>
-                <div class="wrap-input100 validate-input bg1">
-                    <span class="label-input100">Payment *</span>
-                    <input class="input100" type="text" name="payment">
-                </div>
-
-                <div class="container-contact100-form-btn">
-                    <button class="contact100-form-btn">
-                        <span>
-                            Submit
-                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-                        </span>
-                    </button>
-                </div>
-            </form>
-        </div>
+        </main>
     </div>
-
-
-
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/vendor/bootstrap/js/popper.js"></script>
-    <script src="/UploadAndCheckOut/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/vendor/select2/select2.min.js"></script>
-    <script>
-        $(".js-select2").each(function () {
-            $(this).select2({
-                minimumResultsForSearch: 20,
-                dropdownParent: $(this).next('.dropDownSelect2')
-            });
-
-
-            $(".js-select2").each(function () {
-                $(this).on('select2:close', function (e) {
-                    if ($(this).val() == "Please chooses") {
-                        $('.js-show-service').slideUp();
-                    }
-                    else {
-                        $('.js-show-service').slideUp();
-                        $('.js-show-service').slideDown();
-                    }
-                });
-            });
-        })
-    </script>
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/vendor/daterangepicker/moment.min.js"></script>
-    <script src="/UploadAndCheckOut/vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/vendor/noui/nouislider.min.js"></script>
-    <script>
-        var filterBar = document.getElementById('filter-bar');
-
-        noUiSlider.create(filterBar, {
-            start: [1500, 3900],
-            connect: true,
-            range: {
-                'min': 1500,
-                'max': 7500
-            }
-        });
-
-        var skipValues = [
-            document.getElementById('value-lower'),
-            document.getElementById('value-upper')
-        ];
-
-        filterBar.noUiSlider.on('update', function (values, handle) {
-            skipValues[handle].innerHTML = Math.round(values[handle]);
-            $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
-            $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
-        });
-    </script>
-    <!--===============================================================================================-->
-    <script src="/UploadAndCheckOut/js/main.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
-    </script>
-    <script>
-        const wrapper = document.querySelector(".wrapper");
-        const fileName = document.querySelector(".file-name");
-        const defaultBtn = document.querySelector("#default-btn");
-        const customBtn = document.querySelector("#custom-btn");
-        const cancelBtn = document.querySelector("#cancel-btn i");
-        const img = document.querySelector("img");
-        let regExp = /[0-9a-zA-Z\^\&\'\\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
-        function defaultBtnActive() {
-            defaultBtn.click();
-        }
-        defaultBtn.addEventListener("change", function () {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function () {
-                    const result = reader.result;
-                    img.src = result;
-                    wrapper.classList.add("active");
-                }
-                cancelBtn.addEventListener("click", function () {
-                    img.src = "";
-                    wrapper.classList.remove("active");
-                })
-                reader.readAsDataURL(file);
-            }
-            if (this.value) {
-                let valueStore = this.value.match(regExp);
-                fileName.textContent = valueStore;
-            }
-        });
+    <script src="~/UploadAndCheckOut/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/UploadAndCheckOut/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/UploadAndCheckOut/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="~/UploadAndCheckOut/js/tvTablePagination.js"></script>
+    <script src="~/UploadAndCheckOut/js/pagination-v2.js"></script>
+    <script src="~/UploadAndCheckOut/js/global.js"></script>
+    <script src="~/UploadAndCheckOut/js/index.js"></script>
+    <script id="templateBodyTable" type="text/template">
+        <tr data-id="{{value1}}">
+            <td class="text-center" value="{{value2}}">
+                {{value6}}
+            </td>
+            <td class="text-center ">
+                <span>
+                    {{value1}}
+                </span>
+            </td>
+            <td class="text-center ">
+                {{value0}}
+            </td>
+            <td class="text-center ">
+                {{value5}}
+            </td>
+            <td class="text-center ">
+                {{value4}}
+            </td>
+        </tr>
     </script>
 </body>
 </html>

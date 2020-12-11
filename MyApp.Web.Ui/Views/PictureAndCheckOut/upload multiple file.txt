@@ -1,6 +1,0 @@
-Plugin Name: 
-
-Plugin Link: 
-
-
-Source Code:
