@@ -1,10 +1,12 @@
 ﻿
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -107,6 +109,31 @@ namespace MyApp.Services.API.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
 
+        }
+
+        [HttpPost]
+        [Route("upfile")]
+        public IActionResult HandleUploadImage(IFormFile formFile )
+        {
+            //[FromQuery] string sohoadon, [FromQuery] string userid
+            string uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+
+            string hoaDonFolder = Path.Combine(uploadFolder, "123");
+            if (!Directory.Exists(Path.GetDirectoryName(hoaDonFolder)))
+                Directory.CreateDirectory(Path.GetDirectoryName(hoaDonFolder));
+
+            string userFolder = Path.Combine(hoaDonFolder, "456");
+            if (!Directory.Exists(Path.GetDirectoryName(userFolder)))
+                Directory.CreateDirectory(Path.GetDirectoryName(userFolder));
+
+
+            string filename = Guid.NewGuid().ToString() + "_" + formFile.FileName;
+            using (var stream = new FileStream(filename, FileMode.Create))
+            {
+                formFile.CopyTo(stream);
+            }
+
+            return  Ok();
         }
 
     }
