@@ -37,7 +37,7 @@ namespace MyApp.Services.API.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("register")]
-        public async Task<ActionResult> Register(RegisterUser registerUser)
+        public async Task<ActionResult> Register([FromForm] RegisterUser registerUser)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +53,9 @@ namespace MyApp.Services.API.Controllers
 
                 if (result.Succeeded)
                 {
-                    return CustomResponse(GenerateJWTToken(newUser.Email));
+                    GenerateJWTToken(newUser.Email);
+
+                    return Redirect("/");
                 }
                 else
                 {
@@ -74,7 +76,7 @@ namespace MyApp.Services.API.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login(LoginUser loginUser)
+        public async Task<IActionResult> Login([FromForm]LoginUser loginUser)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
@@ -83,7 +85,7 @@ namespace MyApp.Services.API.Controllers
             if (result.Succeeded)
             {
                 var jwtString = GenerateJWTToken(loginUser.Email);
-                return CustomResponse(jwtString);
+                return Redirect("/");
             }
 
             if (result.IsLockedOut)
