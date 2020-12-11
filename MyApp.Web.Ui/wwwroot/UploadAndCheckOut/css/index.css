@@ -1,0 +1,366 @@
+﻿
+
+ul.fd {
+    height: 100%;
+    float: left;
+    display: table;
+    border-spacing: 0;
+    border-collapse: separate;
+    list-style: none none outside;
+    margin: 0;
+    padding: 0;
+    background-repeat: repeat-y;
+    background-position: left top;
+}
+
+    ul.fd.fd-item {
+        vertical-align: middle;
+        min-width: 119px;
+        float: none !important;
+        border: 0px;
+        color: #bbbbbb;
+        line-height: normal;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box
+    }
+
+.dxm-alignSpacing {
+    height: 1px;
+    float: none !important;
+    display: table-cell;
+    vertical-align: top;
+    list-style: none none outside;
+}
+
+.btn-action {
+    min-height: calc(16.1px + 2px);
+    display: block;
+    white-space: nowrap;
+    float: left;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+    .btn-action .dx-vam {
+        margin-right: 5px;
+        height: 16px;
+        width: 16px;
+    }
+
+.page-toolbar .fd li {
+    display: table-cell;
+    float: none !important;
+    border: 0px;
+    text-align: left;
+    line-height: normal;
+}
+
+.text-button {
+    padding: 0;
+    vertical-align: middle;
+    line-height: 100%;
+}
+
+.btn-orange {
+    background: #ff6a00;
+    color: #FFF;
+}
+
+    .btn-orange:hover {
+        background: #e16309;
+        color: #FFF;
+    }
+
+.txt-input {
+    height: 34px;
+    display: block;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    line-height: normal;
+    outline: 0;
+    padding: 0px 3px 0px 3px;
+    background-color: white;
+    width: 100%;
+    border: 1px solid #CCC;
+}
+
+    .txt-input:focus {
+        border: 1px solid #ff6a00;
+    }
+
+.lbl-input {
+    height: 32px;
+}
+
+.item-form {
+    margin-bottom: 5px;
+}
+
+.tbl-input table {
+    width: 100%;
+}
+
+.tbl-input th {
+    padding: 5px;
+    font-weight: 500;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+/*.tbl-input tr td {
+    padding: 10px 5px 10px 5px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}*/
+
+#tblDanhSachHoaDon tr td {
+    padding: 10px 5px 10px 5px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+#tblAddHoaDon.tbl-input tr td, #tblEditHoaDon.tbl-input tr td {
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+#tblDanhSachHoaDon tr td:first-child {
+    border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+#tblAddHoaDon td, #tblEditHoaDon td {
+    border-right: none !important;
+}
+
+#tblAddHoaDon th, #tblEditHoaDon th {
+    border-right: none !important;
+}
+
+.lbl-sum {
+    font-weight: bold;
+    font-style: italic;
+    vertical-align: top;
+}
+
+.txt-input-table {
+    display: block;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    line-height: normal;
+    outline: 0;
+    padding: 0px 1px 0px 0px;
+    background-color: white;
+    width: 100%;
+    border: 1px solid #CCC;
+    height: 32px;
+    padding-left: 3px;
+}
+
+    .txt-input-table.so-luong {
+        width: 40px;
+        text-align: center;
+    }
+
+    .txt-input-table.so-luong-ban, .txt-input-table.so-luong-tra {
+        width: 40px;
+        text-align: center;
+    }
+
+.chi-tiet-row {
+    margin-top: 10px;
+    padding: 5px;
+    background: #f2f2f2;
+}
+
+#addRow, #addRowEdit, #addRowBottom, #addRowBottomEdit {
+    float: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.icon-delete {
+    color: #d00b0b !important;
+    font-size: 20px;
+    cursor: pointer;
+    color: #777070;
+    font-size: 20px;
+    width: 35px;
+    cursor: pointer;
+    background: #CCC;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.thanh-tien {
+    background: #f2f2f2;
+}
+
+.table-hoadon-wrapper {
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+#tblAddHoaDon.tbl-responsive td, #tblEditHoaDon.tbl-responsive td {
+    padding: 5px 0px;
+}
+#tblAddHoaDon, #tblEditHoaDon {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+#tblDanhSachHoaDon tbody tr:last-child {
+    border-bottom: 1px solid #CCC;
+}
+#tblAddHoaDon  thead th{
+    margin:10px 0px;
+}
+#tblDanhSachHoaDon thead tr:first-child {
+    border: 1px solid rgba(0,0,0,0.1);
+    background: #1d65a3;
+    color: #FFF;
+}
+
+#tblDanhSachHoaDon thead tr {
+    text-align: center;
+}
+
+#tblDanhSachHoaDon tbody tr:not(.row-selected):hover {
+    /*background: #F87C1D;*/
+    background: #8bdbdf;
+}
+
+.filter .txt-input-table {
+    border-color: #e9e9e9;
+}
+
+#tblAddHoaDon thead tr, #tblEditHoaDon thead tr {
+    border-bottom: 1px solid #CCC;
+}
+
+.row-selected {
+    /*background: #ff6a00;*/
+    background: #5098d8;
+}
+.error-message{
+    color:red;
+}
+.error-border{
+    border:1px solid red !important;
+}
+
+@media(min-width: 700px) {
+    .add-hoa-don-modal {
+        min-width: 700px;
+    }
+}
+
+@media(min-width: 1024px) {
+    .add-hoa-don-modal {
+        min-width: 1000px;
+    }
+}
+
+@media(max-width: 600px) {
+    .tbl-input {
+        /*width: 700px !important;*/
+        overflow: scroll;
+    }
+}
+/*responsive table để đây làm sau*/
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /*Force table to not be like tables anymore */
+    #tblAddHoaDon.tbl-responsive.table, #tblAddHoaDon.tbl-responsive thead, #tblAddHoaDon.tbl-responsive tbody, #tblAddHoaDon.tbl-responsive th, #tblAddHoaDon.tbl-responsive td, #tblAddHoaDon.tbl-responsive tr, #tblEditHoaDon.tbl-responsive.table, #tblEditHoaDon.tbl-responsive thead, #tblEditHoaDon.tbl-responsive tbody, #tblEditHoaDon.tbl-responsive th, #tblEditHoaDon.tbl-responsive td, #tblEditHoaDon.tbl-responsive tr {
+        display: block;
+    }
+
+        /*         Hide table headers (but not display: none;, for accessibility) */
+        #tblAddHoaDon.tbl-responsive thead tr, #tblEditHoaDon.tbl-responsive thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    #tblAddHoaDon.tbl-responsive tr,  #tblEditHoaDon.tbl-responsive tr {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    #tblAddHoaDon.tbl-responsive td, #tblEditHoaDon.tbl-responsive td {
+        /*         Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+        #tblAddHoaDon.tbl-responsive td .icon-delete , #tblEditHoaDon.tbl-responsive td .icon-delete {
+            margin-left: -15px;
+            margin-top: 10px;
+        }
+
+        #tblAddHoaDon.tbl-responsive td:before , #tblEditHoaDon.tbl-responsive td:before {
+            /*             Now like a table header */
+            position: absolute;
+            /*             Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+
+        /*    Label the data*/
+
+        #tblAddHoaDon.tbl-responsive td:nth-of-type(1):before, #tblEditHoaDon.tbl-responsive td:nth-of-type(1):before {
+            content: "Hàng bán";
+        }
+
+        #tblAddHoaDon.tbl-responsive td:nth-of-type(2):before  ,  #tblEditHoaDon.tbl-responsive td:nth-of-type(2):before {
+            content: "Số lượng bán";
+        }
+
+        #tblAddHoaDon.tbl-responsive td:nth-of-type(3):before , #tblEditHoaDon.tbl-responsive td:nth-of-type(3):before {
+            content: "Hàng trả";
+        }
+
+        #tblAddHoaDon.tbl-responsive td:nth-of-type(4):before , #tblEditHoaDon.tbl-responsive td:nth-of-type(4):before {
+            content: "Số lượng trả";
+        }
+
+        #tblAddHoaDon.tbl-responsive td:nth-of-type(5):before, #tblEditHoaDon.tbl-responsive td:nth-of-type(5):before {
+            content: "Giá bán";
+        }
+
+        #tblAddHoaDon.tbl-responsive td:nth-of-type(6):before , #tblEditHoaDon.tbl-responsive td:nth-of-type(6):before {
+            content: "Thành tiền";
+        }
+
+    /* #tblAddHoaDon.tbl-responsive td:nth-of-type(7):before {
+            content: "Xóa";
+        }*/
+
+    #tblAddHoaDon.tbl-responsive .so-luong-ban, #tblAddHoaDon.tbl-responsive .so-luong-tra , #tblEditHoaDon.tbl-responsive .so-luong-ban, #tblEditHoaDon.tbl-responsive .so-luong-tra {
+        width: 100%;
+        text-align: left;
+    }
+}

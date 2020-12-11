@@ -1,0 +1,8 @@
+﻿.select2-container--default .select2-selection--single {
+    height: 32px;
+    outline: none;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    outline: none;
+}

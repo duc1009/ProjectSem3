@@ -1,0 +1,86 @@
+﻿.valid-input {
+    border: 1px solid red;
+}
+
+.txt-input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-shadow: none;
+    color: #000;
+}
+
+.form-input-wrapper {
+    padding: 25px 25px;
+    background: #fff;
+}
+
+#formEditAccount label, #formCreateAccount label {
+    line-height: 34px;
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #000;
+    font-size: 16px;
+}
+#txtUserNameEdit {
+    color: #b7b7b7;
+    cursor: not-allowed;
+    font-weight: 600;
+}
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.btn.btn-secondary {
+    background-color: #e8e8e8 !important;
+    margin-right: 10px;
+}
+
+    .btn.btn-secondary :hover {
+        background-color: #d2d2d2 !important;
+    }
+
+.modal-title {
+    font-weight: 500;
+}
+.txt-input::placeholder {
+    color: #a0a0a0;
+    font-weight: 300;
+}
+label.error {
+    color: red!important;
+    font-size: 13px!important;
+    margin-bottom: 0!important;
+    font-weight: normal !important;
+}
+.btn-close {
+    position: absolute;
+    right: 0;
+    border: none;
+    background: none;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+}
+.admin-label {
+    padding: 2px 5px;
+    background: #ffad49;
+    border-radius: 4px;
+    color: #000;
+}
+.partner-label {
+    padding: 2px 5px;
+    background: #4cff00;
+    border-radius: 4px;
+    color: #000;
+}
+
