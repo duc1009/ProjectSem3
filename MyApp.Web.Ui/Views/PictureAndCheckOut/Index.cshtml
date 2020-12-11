@@ -1,0 +1,466 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="~/UploadAndCheckOut/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/UploadAndCheckOut/css/site.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="~/UploadAndCheckOut/css/index.css" rel="stylesheet" />
+    <link href="~/UploadAndCheckOut/css/select2-custom.css" rel="stylesheet" />
+    <link href="~/UploadAndCheckOut/css/layout.css" rel="stylesheet" />
+    <link href="~/UploadAndCheckOut/css/site.css" rel="stylesheet" />
+</head>
+<script>
+    function select_card(e) {
+        if (e.value == 1) {
+            $(".card_number").show();
+            $(".cvv_number").show();
+        }
+        else {
+            $(".card_number").hide();
+            $(".cvv_number").hide();
+        }
+    }
+</script>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="page-toolbar-wrapper">
+                <div>
+                    <div class="page-toolbar">
+                        <ul class="fd">
+                            <li class="item fd-disabled">
+                                <h1 class="section-caption">invoice list</h1>
+                            </li>
+                            <li class="dxm-alignSpacing" style="width: 100%;"></li>
+                            <li style="min-width: 77px;" class="btn-action-wrapper" data-toggle="modal" data-target="#addHoaDonModal">
+                                <div class="btn-action">
+                                    <img class="dx-vam" src="~/UploadAndCheckOut/Content/Images/add.svg" alt="">
+                                    <span class="text-button">Add</span>
+                                </div>
+                            </li>
+                            <li style="min-width: 77px;" class="btn-action-wrapper btn-edit-hoadon">
+                                <div class="btn-action">
+                                    <img class="dx-vam" src="~/UploadAndCheckOut/Content/Images/edit.svg" alt="">
+                                    <span class="text-button">Edit</span>
+                                </div>
+                            </li>
+                            <li style="min-width: 77px;" class="btn-action-wrapper btn-delete-hoadon">
+                                <div class="btn-action">
+                                    <img class="dx-vam" src="~/UploadAndCheckOut/Content/Images/delete.svg" alt="">
+                                    <span class="text-button">Delete</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-page-wrapper">
+                <section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tbl-input tbl-hd">
+                                <div class="table-hoadon-wrapper">
+                                    <table id="tblDanhSachHoaDon">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Bills Code</th>
+                                                <th>Customer Code</th>
+                                                <th>Shipping Status</th>
+                                                <th>Money</th>
+                                            </tr>
+                                           @* <tr class="filter">
+                                                <td>
+                                                    <input type="text" id="dpNgayLapFilter" class="txt-input-table" placeholder="Ngày lập" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table input-filter" id="soHDFilter" placeholder="Tìm số HĐ" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table input-filter" id="maKHFilter" placeholder="Tìm mã khách" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table" placeholder="" />
+                                                </td>
+                                                <td>
+                                                    <input class="txt-input-table" placeholder="" />
+                                                </td>
+                                            </tr>*@
+                                        </thead>
+                                        <tbody></tbody>
+
+                                    </table>
+                                </div>
+
+                                <div class="pagination-container">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Modal  Add -->
+            <div class="modal fade" id="addHoaDonModal" role="dialog" aria-labelledby="addHoaDonModalLabel" aria-hidden="true">
+                <div class="modal-dialog add-hoa-don-modal" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addHoaDonModalLabel">Add invoice</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Shipping Address</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <select class="select-box js-example-basic-single" id="tuyenKhachHang" name="state" style="width: 100%; height: 35px;">
+                                            </select>*@
+                                        <input class="txt-input" id="Shipping_Address" placeholder="Shipping Address" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Phone Number</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="phone_number" placeholder="Phone Number" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Payment methods</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <input class="txt-input" id="tenKhachHang" placeholder="Tên khách hàng" />*@
+                                        <select class="select-box" id="payment_method" name="state" style="width:100%;height:35px;" onchange="select_card(this)">
+                                            <option value="0">Please choose</option>
+                                            <option value="1">Card</option>
+                                            <option value="2">Postpaid</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 card_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Card Number</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="Shipping_Address" placeholder="card number" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 cvv_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">CVV</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="Shipping_Address" placeholder="cvv" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 ">
+                                    <div class="item-form">
+                                        <span class="lbl-input ">Date</span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input type="text" id="dpNgayLap" class="txt-input-table" placeholder="Choose date..." />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="item-form chi-tiet-row">
+                                        <span class="lbl-input" style="display: inline">Images</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tbl-input">
+                                        <table id="tblAddHoaDon" class="tbl-responsive">
+                                            <thead>
+                                                <tr>
+
+                                                    <th style="width: 50px">Image</th>
+                                                    <th>Size</th>
+                                                    <th style="width: 50px">Quantity</th>
+                                                    <th>Material</th>
+                                                    <th>
+                                                        Unit price
+                                                    </th>
+                                                    <th>Total price</th>
+                                                    <th> Delete </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        @* <input class="txt-input-table so-luong-ban" value="" placeholder="Số lượng bán" />*@
+                                                        <form action="/action_page.php">
+
+                                                            <input type="file" id="img" name="img" accept="image/*">
+
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <select class="select-box hangTra" name="state" style="width:100%;height:35px;">
+                                                            <option>3x2</option>
+                                                            <option>4x6</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input class="txt-input-table so-luong-tra" value="" style="width:100%;" placeholder="Số lượng trả" />
+                                                    </td>
+                                                    <td>
+                                                        @*      <input class="txt-input-table don-gia" value="" placeholder="Giá bán" />*@
+                                                        <select class="select-box hangTra" name="state" style="width:100%;height:35px;">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input class="txt-input-table don-gia" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="txt-input-table thanh-tien" />
+                                                    </td>
+                                                    <td>
+                                                        <span class="icon-delete" onclick='deleteRow(this)'>X</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <span style="float: right; margin-top: 5px;" id="addRowBottom">+ Add more</span>
+                                </div>
+                                @*<div class="col-md-12">
+                                    <span id="errorDataAddMessage" class="error-message">vui lòng kiểm tra dữ liệu đầu vào</span>
+                                </div>*@
+                                <div class="col-md-12">
+                                    <div class="lbl-sum" style="margin-top: 5px; margin-bottom: 10px">Total money: <span class="lbl-sum" id="tongTien"></span></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Pay: </span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input class="txt-input" id="tienThu" />
+                                    </div>
+                                </div>
+                                @*  <div class="col-md-12">
+                                        <div class="item-form">
+                                            <span class="lbl-input">Diễn giải</span>
+                                        </div>
+                                        <div class="item-form">
+                                            <textarea style="height: 70px" class="txt-input" id="txtDienGiai"></textarea>
+                                        </div>
+                                    </div>*@
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <span type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</span>
+                            <span type="button" class="btn btn-orange" id="btnAddHoaDon">Submit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal  Edit -->
+            <div class="modal fade" id="editHoaDonModal" role="dialog" aria-labelledby="editHoaDonModalLabel" aria-hidden="true">
+                <div class="modal-dialog add-hoa-don-modal" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addHoaDonModalLabel">Edit Bill</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Shipping Address</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <select class="select-box js-example-basic-single" id="tuyenKhachHang" name="state" style="width: 100%; height: 35px;">
+                                            </select>*@
+                                        <input class="txt-input" id="Shipping_Address" placeholder="Shipping Address" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Phone Number</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="phone_number" placeholder="Phone Number" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Payment methods</span>
+                                    </div>
+                                    <div class="item-form">
+                                        @* <input class="txt-input" id="tenKhachHang" placeholder="Tên khách hàng" />*@
+                                        <select class="select-box" id="payment_method" name="state" style="width:100%;height:35px;" onchange="select_card(this)">
+                                            <option value="0">Please choose</option>
+                                            <option value="1">Card</option>
+                                            <option value="2">Postpaid</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 card_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Card Number</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="Shipping_Address" placeholder="card number" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 cvv_number" style="display:none">
+                                    <div class="item-form">
+                                        <span class="lbl-input">CVV</span>
+                                    </div>
+                                    <div class="item-form">
+
+                                        <input class="txt-input" id="Shipping_Address" placeholder="cvv" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 ">
+                                    <div class="item-form">
+                                        <span class="lbl-input ">Date</span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input type="text" id="dpNgayLap" class="txt-input-table" placeholder="Choose date..." />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="item-form chi-tiet-row">
+                                        <span class="lbl-input" style="display: inline">Images</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tbl-input">
+                                        <table id="tblEditHoaDon" class="tbl-responsive">
+                                            <thead>
+                                                <tr>
+
+                                                    <th style="width: 50px">Image</th>
+                                                    <th>Size</th>
+                                                    <th style="width: 50px">Quantity</th>
+                                                    <th>Material</th>
+                                                    <th>
+                                                        Unit price
+                                                    </th>
+                                                    <th>Total price</th>
+                                                    <th> Delete </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <span style="float: right; margin-top: 5px;" id="addRowEdit">+ Thêm chi tiết</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span id="errorDataEditMessage" class="error-message">vui lòng kiểm tra dữ liệu đầu vào</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="lbl-sum" style="margin-top: 5px; margin-bottom: auto">Tổng tiền: <span class="lbl-sum" id="tongTienEdit"></span></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item-form">
+                                        <span class="lbl-input">Tiền thu</span>
+                                    </div>
+                                    <div class="item-form">
+                                        <input class="txt-input" id="tienThuEdit" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <span type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</span>
+                            <span type="button" class="btn btn-orange" id="btnEditHoaDon">Submit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="~/UploadAndCheckOut/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/UploadAndCheckOut/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/UploadAndCheckOut/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="~/UploadAndCheckOut/js/tvTablePagination.js"></script>
+    <script src="~/UploadAndCheckOut/js/pagination-v2.js"></script>
+    <script src="~/UploadAndCheckOut/js/global.js"></script>
+    <script src="~/UploadAndCheckOut/js/index.js"></script>
+    <script id="templateBodyTable" type="text/template">
+        <tr data-id="{{value1}}">
+            <td class="text-center" value="{{value2}}">
+                {{value6}}
+            </td>
+            <td class="text-center ">
+                <span>
+                    {{value1}}
+                </span>
+            </td>
+            <td class="text-center ">
+                {{value0}}
+            </td>
+            <td class="text-center ">
+                {{value5}}
+            </td>
+            <td class="text-center ">
+                {{value4}}
+            </td>
+        </tr>
+    </script>
+</body>
+</html>

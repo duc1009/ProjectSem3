@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using MyApp.Application.ViewModels.Account;
 using System.Linq;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace MyApp.Web.Ui.Controllers
 {
@@ -173,5 +175,8 @@ namespace MyApp.Web.Ui.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
+
+        
     }
 }

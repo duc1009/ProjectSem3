@@ -1,0 +1,310 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <title>Colorway</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/Service/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Service/css/animations.css">
+    <link rel="stylesheet" href="/Service/css/fonts.css">
+    <link rel="stylesheet" href="/Service/css/main.css" class="color-switcher-link">
+    <link rel="stylesheet" href="/Service/css/shop.css" class="color-switcher-link">
+    <script src="/Service/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/Service/js/vendor/html5shiv.min.js"></script>
+        <script src="/Service/js/vendor/respond.min.js"></script>
+        <script src="/Service/js/vendor/jquery-1.12.4.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="/Service/http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->
+    <div class="preloader">
+        <div class="preloader_image"></div>
+    </div>
+    <!-- search modal -->
+    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+                <i class="rt-icon2-cross2"></i>
+            </span>
+        </button>
+        <div class="widget widget_search">
+            <form method="get" class="searchform search-form form-inline" action="./">
+                <div class="form-group bottommargin_0"> <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input"> </div> <button type="submit" class="theme_button color1 no_bg_button">Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- Unyson messages modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+        <div class="fw-messages-wrap ls with_padding">
+            <!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+            <!--
+            <ul class="list-unstyled">
+                <li>Message To User</li>
+            </ul>
+            -->
+        </div>
+    </div>
+    <!-- eof .modal -->
+    <!-- wrappers for visual page editor and boxed version of template -->
+    <div id="canvas">
+        <div id="box_wrapper">
+            <!-- template sections -->
+            <div class="transparent_wrapper">
+                <header class="page_header header_v2 header_white toggler_xxs_right">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 display-flex v-center">
+                                <div class="header_left_logo">
+                                    <a href="/Service/./" class="logo">
+                                        <img src="/Service/images/logo-light.png" alt="">
+                                        <img src="/Service/images/logo.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="header_mainmenu text-center">
+                                    <!-- main nav start -->
+                                    <nav class="mainmenu_wrapper">
+                                        <ul class="mainmenu nav sf-menu">
+                                            <li class="active">
+                                                <a href="@Url.Action("Index","Home")"><span>Home</span></a>
+                                          
+                                            </li>
+                                
+                                            <!-- eof pages -->
+                                  
+                                            <li> <a href="@Url.Action("Service","Home")"><span>Services</span></a> </li>
+                                            <li>
+                                                <a href="@Url.Action("About","Home")"><span>About</span></a>
+                                                
+                                                <!-- eof mega menu -->
+                                            </li>
+                                            <!-- eof features -->
+                                            <!-- shop -->
+                                           
+                                            <!-- eof blog -->
+                                            <!-- contacts -->
+                                            <li>
+                                                <a href="@Url.Action("Contact","Home")"><span>Contact</span></a>
+                                               
+                                            </li>
+                                            <!-- eof contacts -->
+                                        </ul>
+                                    </nav>
+                                    <!-- eof main nav -->
+                                    <!-- header toggler --><span class="toggle_menu"><span></span></span>
+                                </div>
+                                <div class="header_right_buttons text-right hidden-xxs">
+                                    <p class="page_social bottommargin_25"> <a href="/Service/#" class="social-icon color-bg-icon rounded-icon socicon-facebook"></a> <a href="/Service/#" class="social-icon color-bg-icon rounded-icon socicon-twitter"></a> <a href="/Service/#" class="social-icon color-bg-icon rounded-icon socicon-googleplus"></a>										</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <section class="page_breadcrumbs ds background_cover section_padding_25">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h1>Services</h1>
+                            <ol class="breadcrumb darklinks">
+                                <li>
+                                    <a href="/Service/./">
+                                        Home
+                                    </a>
+                                </li>
+                                <li> <a href="/Service/#">Pages</a> </li>
+                                <li class="active"> <span>Services</span> </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ls section_padding_top_150 section_padding_bottom_150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <article class="service-item media">
+                                <div class="media-left">
+                                    <a href="/Service/service-single.html">
+                                        <i class="clr-service-copying size_big highlight3"></i>
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="entry-title small"><a href="/Service/service-single.html">Copying Services</a></h3>
+                                    <div class="row columns_padding_30">
+                                        <div class="col-xs-12 col-sm-8">
+                                            <p>
+                                                Ex nulla nonumes constituam nam, ut cum rationibus quaerendum. Nec ad libris inimicus. Nominavi molestiae ut vel. Eros luptatum eum ut, debet amet nonumy patrioque vix eu, an sint erat veritus ius. Te sed detraxit imperdiet, vel an prima oportere,
+                                                an qui eleifend petentium. Nec persecuti ullamcorper et, at mei admodum conceptam, ne autem feugiat sea. Nam habeo perfecto ea, eu probatus.
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 darklinks grey"> Reprehendunt Nisl Admodum<br> Noster Labitur Consulatu<br> Prima Commune Accusata Has<br> His Nulla Recusabo Amet </div>
+                                    </div>
+                                    <div class="topmargin_10"> <a href="/Service/service-single.html" class="theme_button color1">Read more</a> </div>
+                                </div>
+                            </article>
+                            <article class="service-item media">
+                                <div class="media-left">
+                                    <a href="/Service/service-single.html">
+                                        <i class="clr-service-design size_big highlight3"></i>
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="entry-title small"><a href="/Service/service-single.html">Design Services</a></h3>
+                                    <div class="row columns_padding_30">
+                                        <div class="col-xs-12 col-sm-8">
+                                            <p>
+                                                Eu illum idque incorrupte ius. Eam an erant perpetua dignissim. Deleniti amet officiis mea te, his probo ocurreret ne, diam regione referrentur duo ut. Ipsum regione ex per, everti senserit ne usu. Altera recusabo euripidis eum et, simul evertitur
+                                                definiebas ad has, eos an oratio aeterno contentiones. Usu te mutat habemus dissentiunt, ei mea salutatus prodesset. In porro facilisi sadipscing vix, id magna sanctus delicatissimi.
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 darklinks grey">Saepe Oporteat Senserit<br> Audire Prodesset Aliquam<br> Civibus Scripserit</div>
+                                    </div>
+                                    <div class="topmargin_10"> <a href="/Service/service-single.html" class="theme_button color1">Read more</a> </div>
+                                </div>
+                            </article>
+                            <article class="service-item media">
+                                <div class="media-left">
+                                    <a href="/Service/service-single.html">
+                                        <i class="clr-service-scaning size_big highlight3"></i>
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="entry-title small"><a href="/Service/service-single.html">Digital Scanning</a></h3>
+                                    <div class="row columns_padding_30">
+                                        <div class="col-xs-12 col-sm-8">
+                                            <p>
+                                                In vim quas adolescens, pro quot iriure sadipscing no. Ne vim aliquid ludus evertitur. Simul semper praesent ei sed, integre principes pro ad, copiosae pertinacia an est. Soleat labores te duo. Nam denique copiosae luptatum dolore phaedrum
+                                                ne est. An commune adipisci pri. Te eam argumentum ex dissentiet, verear torquatos vim te. An sit habemus prodesset rationibus nec omnes sapientem.
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 darklinks grey"> Duo Postea Tincidunt<br> Usu Possit Audire Quaeque <br> Quaestio Comprehensam <br> Tota Evertitur Mediocritatem<br> </div>
+                                    </div>
+                                    <div class="topmargin_10"> <a href="/Service/service-single.html" class="theme_button color1">Read more</a> </div>
+                                </div>
+                            </article>
+                            <article class="service-item media">
+                                <div class="media-left">
+                                    <a href="/Service/service-single.html">
+                                        <i class="clr-service-printing size_big highlight3"></i>
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="entry-title small"><a href="/Service/service-single.html">Printing Services</a></h3>
+                                    <div class="row columns_padding_30">
+                                        <div class="col-xs-12 col-sm-8">
+                                            <p>
+                                                Has error voluptua sententiae cu, sed ne idque tincidunt, vel viris probatus constituto cu. Sonet appellantur vituperatoribus ea est. Ius percipit hendrerit voluptatibus ad, eu est illud honestatis, no errem inermis honestatis impetus. Ullum
+                                                aperiam ancillae cum et, vero torquatos est no. Ex petentium maluisset rationibus sit. Usu impetus prodesset an, usu zril quaestio ea, in vel vidit amet persius. Ne modo posse ius.
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 darklinks grey"> Consul Legimus Eum Bonorum<br> Hinc Etiam Ludus Omnes <br> Delicatissimi Interpretaris Quo<br> Verear Tacimates Insolens<br> Corpora Neglegentur Novum Dicant<br> </div>
+                                    </div>
+                                    <div class="topmargin_10"> <a href="/Service/service-single.html" class="theme_button color1">Read more</a> </div>
+                                </div>
+                            </article>
+                            <article class="service-item media">
+                                <div class="media-left">
+                                    <a href="/Service/service-single.html">
+                                        <i class="clr-service-booklet size_big highlight3"></i>
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="entry-title small"><a href="/Service/service-single.html">Booklet Binding</a></h3>
+                                    <div class="row columns_padding_30">
+                                        <div class="col-xs-12 col-sm-8">
+                                            <p>
+                                                Ea aliquip fabellas quo, pro cu decore tamquam, vis debet denique ludus dissentiet eu. Option imperdiet has ad, nusquam disputando vis ex. Ex eam regione persecuti. Usu eu brute verterem. Dolorum scaevola mel cu, nihil quaeque sententiae eam
+                                                ut. Graeco fastidii omnesque mel ex, vix insolens dignissim cu. Vim probo luptatum accusata at, mea id clita graece impetus appareat amet.
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 darklinks grey"> Consectetuer Definitiones Persius <br> Epicuri Argumentum Nonumy <br> Dicam Utamur Concludaturque <br> </div>
+                                    </div>
+                                    <div class="topmargin_10"> <a href="/Service/service-single.html" class="theme_button color1">Read more</a> </div>
+                                </div>
+                            </article>
+                            <article class="service-item media">
+                                <div class="media-left">
+                                    <a href="/Service/service-single.html">
+                                        <i class="clr-service-finishing size_big highlight3"></i>
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="entry-title small"><a href="/Service/service-single.html">Finishing Services</a></h3>
+                                    <div class="row columns_padding_30">
+                                        <div class="col-xs-12 col-sm-8">
+                                            <p>
+                                                Sed ne aliquando sententiae, est delectus phaedrum convenire an. In eripuit gloriatur adolescens ius. An duo velit voluptatum, vivendo periculis mel no. Vocent maluisset intellegam at cum, ea vix duis utroque senserit. Vim in fabellas adipisci
+                                                mediocrem. Eos no congue nominavi gloriatur, dico noster te cum, ut usu eruditi legimus deterruisset. Tamquam civibus recteque at cum, ea liber legendos eam.
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 darklinks grey"> Tation Omittantur Habemus <br> Rationibus Liberavisse <br> Enim Verterem Petentium Amet<br> Debet Corpora Constituam<br> </div>
+                                    </div>
+                                    <div class="topmargin_10"> <a href="/Service/service-single.html" class="theme_button color1">Read more</a> </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="page_footer cs main_color7 section_padding_top_110 section_padding_bottom_120 columns_margin_bottom_30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight3"> <img src="/Service/images/clr-phone-call-3.png" alt=""> </div>
+                                <p> <span class="small-text highlight3">call us 24/7</span><br> <span class="big black">0-800-234-5678</span> </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight8"> <img src="/Service/images/clr-mail-5.png" alt=""> </div>
+                                <p> <span class="small-text highlight8">write us</span><br> <span class="big black darklinks"><a href="/Service/mailto:#">cway@support.com</a></span> </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="teaser text-center">
+                                <div class="teaser_icon size_big highlight9"> <img src="/Service/images/clr-clock-5.png" alt=""> </div>
+                                <p> <span class="small-text highlight9">7 days a week</span><br> <span class="big black">9:00am - 8:00PM</span> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <section class="page_copyright cs section_padding_top_110 section_padding_bottom_100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <p class="page_social bottommargin_20"> <a href="/Service/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-facebook"></a> <a href="/Service/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-twitter"></a> <a href="/Service/#" class="social-icon light-bg-icon color-icon rounded-icon socicon-googleplus"></a>								</p>
+                            <p class="small-text black">&copy; Copyright 2018 All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- eof #box_wrapper -->
+    </div>
+    <!-- eof #canvas -->
+    <script src="/Service/js/compressed.js"></script>
+    <script src="/Service/js/selectize.min.js"></script>
+    <script src="/Service/js/main.js"></script>
+</body>
+
+</html>
