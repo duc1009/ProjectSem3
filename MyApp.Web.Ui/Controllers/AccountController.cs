@@ -122,25 +122,7 @@ namespace MyApp.Web.Ui.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel loginModel, string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(loginModel.Email, loginModel.PassWord, loginModel.Remember, false);
-                if (result.Succeeded)
-                {
-                    if (!string.IsNullOrEmpty(returnUrl))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-            return View();
-        }
+
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = "")
         {
@@ -148,24 +130,7 @@ namespace MyApp.Web.Ui.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel registerModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new IdentityUser { UserName = registerModel.Email, Email = registerModel.Email };
-                var result = await _userManager.CreateAsync(user, registerModel.Password);
-                if (result.Succeeded)
-                {
-                    await _userManager.AddToRoleAsync(user, "User");
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction(nameof(HomeController.Index), "Home");
-                }
-            }
-            return View(registerModel);
-        }
+
 
         [Authorize]
         [HttpPost]
