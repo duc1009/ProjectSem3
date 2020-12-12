@@ -518,9 +518,9 @@ $(function () {
     });
 
     /// add hóa đơn
-    $('#btnAddHoaDon').click(function () {
-        AddHoaDon();
-    });
+    //$('#btnAddHoaDon').click(function () {
+    //    AddHoaDon();
+    //});
 
     // Edit Hoa Don
     $('#btnEditHoaDon').click(function () {
@@ -1249,3 +1249,85 @@ function tongTienEdit() {
     });
     $('#tongTienEdit').text(formatCurrency(sum.toString()));
 }
+
+$(document).ready(function () {
+    $("#btnAddHoaDon").click(function () {
+        let length = $("#tblAddHoaDon input[type=file]").length;
+
+        //let sohoadon = "hoadonfake";
+        // userid = "userid";
+
+        let url = location.href.substring(0, location.href.lastIndexOf('/')) + "/image/upload";
+
+            //"/api/account/upfile?sohoadon=" + sohoadon + "&userid=" + userid;
+
+  
+
+        for (let i = 0; i < length; i++) {  
+            let image = $('input[type=file]')[i].files[0];
+
+            let formData = new FormData();
+            formData.append('image_' + i, image);
+            debugger;
+            $.ajax({
+                url: url,
+                data: formData,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                success: function (result, status, xhr) {
+                    alert("");
+                    alert(result);
+                  
+                },
+                error: function (xhr, status, error) {
+                    alert("");
+                    alert(status);
+                    alert(error);
+                }
+            });
+        }
+
+
+        //let length = $("#tblAddHoaDon input[type=file]").length;
+
+        //for (let i = 0; i < length; i++) {
+        //    let input = $("#tblAddHoaDon input[type=file]").get(i);
+        //    let file = input.files[0];
+        //    console.log(file.name);
+
+        //    let formData = new FormData();
+        //    formData.append("file", file);
+
+        //    try {
+        //        const response = await fetch('api/image/upload', {
+        //            method: 'POST',
+        //            body: formData,
+        //            headers: {
+        //                'Content-Type': 'multipart/form-data'
+        //            },
+
+        //        }).then(function (response) {
+        //            console.log(response.status)
+        //            console.log("response");
+        //            console.log(response)
+        //        });
+
+        //    } catch (error) {
+        //        console.error('Error:', error);
+        //    }
+        //}
+
+        //let url = location.href.substring(0, location.href.lastIndexOf('/')) + "/image/upload";
+
+
+        //axios.post("/api/account/upfile", formData, {
+        //    headers: {
+        //         'Content-Type' : 'multipart/form-data'
+        //    }
+        //});
+
+      
+        
+    })
+});

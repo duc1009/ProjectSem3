@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Security.Claims;
@@ -113,30 +114,66 @@ namespace MyApp.Services.API.Controllers
 
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("upfile")]
-        public IActionResult HandleUploadImage(IFormFile formFile )
+        public ActionResult HandleUploadImage([FromForm] DataForm dataForm )
         {
             //[FromQuery] string sohoadon, [FromQuery] string userid
-            string uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            //string uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
 
-            string hoaDonFolder = Path.Combine(uploadFolder, "123");
-            if (!Directory.Exists(Path.GetDirectoryName(hoaDonFolder)))
-                Directory.CreateDirectory(Path.GetDirectoryName(hoaDonFolder));
+            //string hoaDonFolder = Path.Combine(uploadFolder, "hoadon");
+            //if (!Directory.Exists(Path.GetDirectoryName(hoaDonFolder)))
+            //    Directory.CreateDirectory(Path.GetDirectoryName(hoaDonFolder));
 
-            string userFolder = Path.Combine(hoaDonFolder, "456");
-            if (!Directory.Exists(Path.GetDirectoryName(userFolder)))
-                Directory.CreateDirectory(Path.GetDirectoryName(userFolder));
+            //string userFolder = Path.Combine(hoaDonFolder, "userid");
+            //if (!Directory.Exists(Path.GetDirectoryName(userFolder)))
+            //    Directory.CreateDirectory(Path.GetDirectoryName(userFolder));
+
+            //string filename = Guid.NewGuid().ToString() + "_" + dataForm.File.FileName;
+            //using (var stream = new FileStream(filename, FileMode.Create))
+            //{
+            //    dataForm.File.CopyTo(stream);
+            //}
 
 
-            string filename = Guid.NewGuid().ToString() + "_" + formFile.FileName;
-            using (var stream = new FileStream(filename, FileMode.Create))
-            {
-                formFile.CopyTo(stream);
-            }
-
-            return  Ok();
+            return  Ok(new { status = true, message = "Student Posted Successfully"});
         }
 
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("upload1")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Upload1([FromBody] List<IFormFile> files)
+        {
+            return Ok(new { status = true });
+        }
+
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("upload2")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Upload2([FromBody]IFormFile file)
+        {
+            return Ok(new { status = true });
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("test")]
+        public async Task<IActionResult> test()
+        {
+            return Ok(new { status = true });
+        }
+
+    }
+
+
+
+    public class DataForm 
+    {
+        public IFormFile File { get; set; }
     }
 }
