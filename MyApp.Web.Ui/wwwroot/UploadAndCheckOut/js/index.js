@@ -97,11 +97,11 @@ $(function () {
         $(this).on("click", function () {
             $("#tblAddHoaDon tbody").append(`<tr>
                                                       <td >
-                                                           <form action="/action_page.php">
                                                           
-                                                            <input type="file" id="img" name="img" accept="image/*">
+                                                          
+                                                            <input type="file" form="testform"  />
                                                         
-                                                        </form>
+                                                   
                                                     </td>
                                                     <td>
                                                         <select class="select-box hangTra" name="state" style="width:100%;height:35px;">
@@ -1253,79 +1253,31 @@ function tongTienEdit() {
 $(document).ready(function () {
     $("#btnAddHoaDon").click(function () {
         let length = $("#tblAddHoaDon input[type=file]").length;
+        let list = $("#tblAddHoaDon input[type=file]");
+        let data = new FormData();
 
-        //let sohoadon = "hoadonfake";
-        // userid = "userid";
-
-        let url = location.href.substring(0, location.href.lastIndexOf('/')) + "/image/upload2";
-
-            //"/api/account/upfile?sohoadon=" + sohoadon + "&userid=" + userid;
-
-  
-
-        for (let i = 0; i < length; i++) {  
-            let image = $('input[type=file]')[i].files[0];
-
-            let formData = new FormData();
-            formData.append('image_' + i, image);
-            debugger;
-            $.ajax({
-                url: url,
-                data: formData,
-                type: 'POST',
-                contentType: false,
-                processData: false,
-                success: function (result, status, xhr) {
-                    alert("");
-                    alert(result);
-                  
-                },
-                error: function (xhr, status, error) {
-                    alert("");
-                    alert(status);
-                    alert(error);
-                }
-            });
+        for (var i = 0; i < length; i++) {
+            let image = $("#tblAddHoaDon input[type=file]").get(i);
+            data.append("file", image);
         }
 
-
-        //let length = $("#tblAddHoaDon input[type=file]").length;
-
-        //for (let i = 0; i < length; i++) {
-        //    let input = $("#tblAddHoaDon input[type=file]").get(i);
-        //    let file = input.files[0];
-        //    console.log(file.name);
-
-        //    let formData = new FormData();
-        //    formData.append("file", file);
-
-        //    try {
-        //        const response = await fetch('api/image/upload', {
-        //            method: 'POST',
-        //            body: formData,
-        //            headers: {
-        //                'Content-Type': 'multipart/form-data'
-        //            },
-
-        //        }).then(function (response) {
-        //            console.log(response.status)
-        //            console.log("response");
-        //            console.log(response)
-        //        });
-
-        //    } catch (error) {
-        //        console.error('Error:', error);
-        //    }
-        //}
-
-        //let url = location.href.substring(0, location.href.lastIndexOf('/')) + "/image/upload";
-
-
-        //axios.post("/api/account/upfile", formData, {
-        //    headers: {
-        //         'Content-Type' : 'multipart/form-data'
-        //    }
-        //});
+        $.ajax({
+            type: "POST",
+            url: "/image/UploadFilesAjax",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (message) {
+                alert(message);
+            },
+            error: function (s1, s2, s3, s4) {
+                console.log(s1);
+                console.log(s2);
+                console.log(s3);
+                console.log(s4);
+                alert("There was error uploading files!");
+            }
+        });      
 
       
         
