@@ -1257,7 +1257,7 @@ $(document).ready(function () {
         //let sohoadon = "hoadonfake";
         // userid = "userid";
 
-        let url = location.href.substring(0, location.href.lastIndexOf('/')) + "/image/upload";
+        let url = location.href.substring(0, location.href.lastIndexOf('/')) + "/image/upload2";
 
             //"/api/account/upfile?sohoadon=" + sohoadon + "&userid=" + userid;
 

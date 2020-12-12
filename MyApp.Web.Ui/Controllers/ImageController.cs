@@ -57,6 +57,39 @@ namespace MyApp.Web.Ui.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> upload2(List<IFormFile> imageFiles)
+        {
+            //var name = data["file"];
+            //[FromQuery] string sohoadon, [FromQuery] string userid
+            string uploadFolder = _environment.WebRootPath;
+
+            string hoaDonFolder = Path.Combine(uploadFolder, "123");
+            if (!Directory.Exists(Path.GetDirectoryName(hoaDonFolder)))
+                Directory.CreateDirectory(Path.GetDirectoryName(hoaDonFolder));
+
+            string userFolder = Path.Combine(hoaDonFolder, "456");
+            if (!Directory.Exists(Path.GetDirectoryName(userFolder)))
+                Directory.CreateDirectory(Path.GetDirectoryName(userFolder));
+
+            //foreach (IFormFile formFile in formFiles)
+            //{
+            //    string filename = Guid.NewGuid().ToString() + "_" + formFile.FileName;
+            //    using (var stream = new FileStream(filename, FileMode.Create))
+            //    {
+            //        await formFile.CopyToAsync(stream);
+            //    }
+            //}
+
+            //string filename = Guid.NewGuid().ToString() + "_" + formFile.FileName;
+            //using (var stream = new FileStream(filename, FileMode.Create))
+            //{
+            //    await formFile.CopyToAsync(stream);
+            //}
+
+            return Ok();
+        }
+
         //[HttpPost]
         //public string Upload_File()
 
