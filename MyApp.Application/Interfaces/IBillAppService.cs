@@ -16,6 +16,7 @@ namespace MyApp.Application.Interfaces
         Task<IEnumerable<BillViewModel>> GetAll();
         Task<ValidationResult> Delete(Guid[] ids);
         Task<IEnumerable<BillViewModel>> ListBill(BillQueryModel urlQuery);
+        Task<IEnumerable<StatisticPeopleBuyViewModel>> ListPeopleBuy(StatisticPeopleBuyQueryModel urlQuery);
         BillViewModel GetById(Guid id);
 
     }

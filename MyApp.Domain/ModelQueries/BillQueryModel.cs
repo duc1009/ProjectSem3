@@ -8,6 +8,7 @@ namespace MyApp.Domain.ModelQueries
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
+        public string User { get; set; }
         public double TotalMoney { get; set; }
         public DateTime Date { get; set; }
         public string Note { get; set; }

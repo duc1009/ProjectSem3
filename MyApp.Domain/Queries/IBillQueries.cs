@@ -9,5 +9,6 @@ namespace MyApp.Domain.Queries
     public interface IBillQueries
     {
         Task<List<BillDTO>> GetBill(BillQueryModel urlQuery);
+        Task<List<StatisticPeopleBuyDTO>> GetPeopleBuy(StatisticPeopleBuyQueryModel urlQuery);
     }
 }

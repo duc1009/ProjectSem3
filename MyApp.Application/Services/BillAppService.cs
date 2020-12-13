@@ -69,5 +69,12 @@ namespace MyApp.Application.Services
 
             return Bills.AsQueryable().ProjectTo<BillViewModel>(mapper.ConfigurationProvider);
         }
+        public async Task<IEnumerable<StatisticPeopleBuyViewModel>> ListPeopleBuy(StatisticPeopleBuyQueryModel urlQuery)
+        {
+            var Bills = await _queries.GetPeopleBuy(urlQuery);
+
+            return Bills.AsQueryable().ProjectTo<StatisticPeopleBuyViewModel>(mapper.ConfigurationProvider);
+        }
+        
     }
 }

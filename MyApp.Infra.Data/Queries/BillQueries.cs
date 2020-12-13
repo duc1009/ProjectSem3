@@ -40,6 +40,25 @@ namespace MyApp.Infra.Data.Queries
                 return result.ToList();
             }
         }
+        public async Task<List<StatisticPeopleBuyDTO>> GetPeopleBuy(StatisticPeopleBuyQueryModel urlQuery)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("SELECT c.UserId,u.UserName, sum(c.TotalMoney) ");
+                sb.Append("FROM Bill as c ");
+                sb.Append("INNER JOIN AspNetUsers as u ON u.Id=c.UserId ");
+                sb.Append("WHERE c.IsDeleted = 0 Group By c.UserId,u.UserName ");
+                if(!string.IsNullOrEmpty(urlQuery.User))
+                    sb.Append($"AND u.UserName COLLATE Latin1_General_CI_AI LIKE N'%{urlQuery.User}%' ");
+                sb.Append("Group By c.UserId,u.UserName ");
+                string query = sb.ToString();
+                var result = await connection.QueryAsync<StatisticPeopleBuyDTO>(query);
+              
+                return result.ToList();
+            }
+        }
+        
 
     }
 }
