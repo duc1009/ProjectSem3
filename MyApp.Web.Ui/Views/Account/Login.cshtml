@@ -1,8 +1,6 @@
 ﻿@model MyApp.Application.ViewModels.Account.LoginViewModel
 
-@{
-    ViewData["Title"] = "Login";
-}
+@{ ViewData["Title"] = "Login"; }
 
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -42,26 +40,131 @@
         </form>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6">
-        @{
-            if (Model.ExternalLogins.Count == 0)
-            {
-                <div>No external Login Configured</div>
-            }
-            else
-            {
-                <form asp-action="ExternalLogin" method="post" asp-route-returnUrl="@Model.ReturnUrl">
-                    <div>
-                        @foreach (var provider in Model.ExternalLogins)
+        @{ if (Model.ExternalLogins.Count == 0)
                         {
-                            <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name">@provider.DisplayName</button>
-                        }
-                    </div>
-                </form>
-            }
-        }
+            <div>No external Login Configured</div> }
+                        else
+                        {
+            <form asp-action="ExternalLogin" method="post" asp-route-returnUrl="@Model.ReturnUrl">
+                <div>
+                    @foreach (var provider in Model.ExternalLogins)
+                    {
+    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name">@provider.DisplayName</button>}
+                </div>
+            </form> } }
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+@{
+    Layout = null;
+}
+@{
+    var protocal = Context.Request.Scheme + "://";
+    var favicon16 = protocal + Context.Request.Host + "/Content/icon/favicon-16x16.png";
+    var favicon32 = protocal + Context.Request.Host + "/Content/icon/favicon-32x32.png";
+    var favicon96 = protocal + Context.Request.Host + "/Content/icon/favicon-96x96.png";
+    var image = Context.Request.Scheme + "://" + Context.Request.Host + "/Content/Images/logoaviet_200x200.png";
+    var description = Html.Raw("Công ty AViet - Giải pháp phần mềm.");
+    var title = Html.Raw("Công ty AViet – Giải pháp phần mềm");
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="@title">
+    <meta name="description" content="@description">
+    <meta name="image" content="@image" />
+
+    <!--Facebook-->
+    <meta property="og:image" content="@image" />
+    <meta property="og:title" content="@title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="@description">
+
+    <!--Twitter -->
+    <meta name="twitter:title" content="@title" />
+    <meta name="twitter:creator" content="AViet" />
+    <meta name="twitter:image:src" content="@image" />
+    <meta name="twitter:description" content="@description">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="@favicon16" />
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="@favicon32" />
+    <link rel="shortcut icon" type="image/png" sizes="96x96" href="@favicon96" />
+    <title>Login</title>
+    <script src="~/Content/admin-page/js/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link href="~/Content/admin-page/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="">
+                <img src="/Content/Images/logoaviet_200x200.png" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            <form>
+                <input type="text" id="username" class="" name="login" placeholder="login">
+                <input type="password" id="password" class="" name="login" placeholder="password">
+                <input type="button" onclick="UserLogin();" class="" value="Đăng nhập">
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <script>
+        function UserLogin() {
+            var username = $('#username').val();
+            var password = $('#password').val();
+            $('body').addClass('loading');
+            $('.loading-screen').removeClass('hide');
+            $.ajax({
+                url: '/Administrator/UserLogin',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    userName: username,
+                    passWord: password
+                },
+                beforeSend: function () {
+                    //showLoadingScreen();
+                },
+                success: function (res) {
+                    $('.loading-screen').addClass('hide');
+                    $('body').removeClass('loading');
+                    if (res == "NOTFOUND") {
+                        $('#username').val('');
+                        $('#password').val('');
+                        alert("Sai tên đăng nhập hoặc mật khẩu");
+                    }
+                    else {
+                        window.location.href = '/';
+                    }
+                },
+                error: function () {
+                    $('.loading-screen').addClass('hide');
+                    $('body').removeClass('loading');
+                    alert("Đã có lỗi xảy ra");
+                }
+            })
+        }
+        $(document).on('keypress', function (e) {
+            if (e.which == 13) {
+                UserLogin();
+            }
+        });
+    </script>
+</body>
+</html>
+

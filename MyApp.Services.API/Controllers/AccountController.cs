@@ -77,7 +77,7 @@ namespace MyApp.Services.API.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromForm]LoginUser loginUser)
+        public async Task<IActionResult> Login([FromBody]LoginUser loginUser)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 

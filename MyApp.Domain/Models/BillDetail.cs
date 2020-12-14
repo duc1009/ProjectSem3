@@ -15,7 +15,7 @@ namespace MyApp.Domain.Models
         public string Image { get; set; }
         public Guid SizeId { get; set; }
         public Guid MaterialId { get; set; }
+        public double Price { get; set; }
 
-      
     }
 }
