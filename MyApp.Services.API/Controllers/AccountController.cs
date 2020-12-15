@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,7 +52,7 @@ namespace MyApp.Services.API.Controllers
                 };
 
                 var result = await _userManager.CreateAsync(newUser, registerUser.Password);
-                await _userManager.AddToRoleAsync(user, "User");
+                await _userManager.AddToRoleAsync(newUser, "User");
                 if (result.Succeeded)
                 {
                     GenerateJWTToken(newUser.Email);
@@ -74,7 +75,8 @@ namespace MyApp.Services.API.Controllers
 
         }
 
-        [AllowAnonymous]
+
+        [ValidateAntiForgeryToken]
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromForm]LoginUser loginUser)
@@ -96,7 +98,7 @@ namespace MyApp.Services.API.Controllers
             }
 
             AddError("Incorrect user or password");
-            return CustomResponse();
+            return StatusCode((int)HttpStatusCode.Unauthorized);
         }
 
         private string GenerateJWTToken(string email)

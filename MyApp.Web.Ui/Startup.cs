@@ -76,6 +76,11 @@ namespace MyApp.Web.Ui
 
             // Panigation
             //services.AddPaging();
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            });
         }
 
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
