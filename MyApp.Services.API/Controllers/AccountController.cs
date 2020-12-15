@@ -51,7 +51,7 @@ namespace MyApp.Services.API.Controllers
                 };
 
                 var result = await _userManager.CreateAsync(newUser, registerUser.Password);
-
+                await _userManager.AddToRoleAsync(user, "User");
                 if (result.Succeeded)
                 {
                     GenerateJWTToken(newUser.Email);
@@ -77,7 +77,7 @@ namespace MyApp.Services.API.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody]LoginUser loginUser)
+        public async Task<IActionResult> Login([FromForm]LoginUser loginUser)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 

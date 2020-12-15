@@ -10,7 +10,7 @@ using MyApp.Application.ViewModels.Roles;
 
 namespace MyApp.Web.Ui.Controllers
 {
-/*    [Authorize(Roles ="Administrator")]*/
+/*    [Authorize(Roles ="Admin")]*/
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;

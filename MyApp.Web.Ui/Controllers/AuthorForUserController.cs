@@ -11,7 +11,7 @@ using MyApp.Application.ViewModels.AuthorForUser;
 namespace MyApp.Web.Ui.Controllers
 {
     
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Admin")]
     public class AuthorForUserController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
